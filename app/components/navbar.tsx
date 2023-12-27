@@ -2,9 +2,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import {usePlausible} from "next-plausible";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const plausible = usePlausible()
 
   const handleNav = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -20,6 +22,7 @@ export const Navbar = () => {
             <Link
               href="/7rad"
               className="text-white p-2 text-xs hover:border-b"
+              onClick={() => plausible('7RadClicked')}
             >
               7Rad
             </Link>
