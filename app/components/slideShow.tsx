@@ -6,12 +6,17 @@ import pyr5 from "../../public/pyr/pyr-5.jpg";
 import pyr from "../../public/pyr/pyr.jpg";
 import pyr20 from "../../public/pyr/pyr-20.jpg";
 import pyr29 from "../../public/pyr/pyr-29.jpg";
+import portrait1 from "../../public/slides/portrait-1.jpg";
+import landscape1 from "../../public/slides/landscape-1.jpg";
+import miami1 from "../../public/slides/miami-1.jpg";
+import rad1 from "../../public/7rad/7rad1.jpg";
+
 
 
 // TODO: pass images as props
 export const SlideShow:FC = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const imagesTest = [pyr5, pyr20, pyr, pyr29 ]
+    const imagesTest = [pyr20, portrait1, landscape1, rad1, miami1]
 
     const nextSlide = () => {
         setCurrentSlide((prevSlide) => (prevSlide === imagesTest.length - 1 ? 0 : prevSlide + 1));

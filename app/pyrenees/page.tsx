@@ -1,3 +1,7 @@
+import {Photo} from "../components/photo";
+import pyr from "../../public/pyr/pyr.jpg";
+
+
 export default function Pyrenees() {
-  return <div>Pyrénées </div>;
+  return <Photo photo={pyr}/>;
 }

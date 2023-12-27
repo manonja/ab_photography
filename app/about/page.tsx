@@ -1,3 +1,5 @@
+import {SlideShow} from "../components/slideShow";
+
 export default function About() {
-  return <div>About</div>;
+  return <SlideShow/>
 }
