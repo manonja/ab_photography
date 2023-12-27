@@ -9,12 +9,7 @@ import pyr29 from "../../public/pyr/pyr-29.jpg";
 
 
 // TODO: pass images as props
-interface ISlideShowProps {
-    images: string[];
-}
-
-
-export const SlideShow:FC<ISlideShowProps> = () => {
+export const SlideShow:FC = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const imagesTest = [pyr5, pyr20, pyr, pyr29 ]
 
