@@ -65,18 +65,18 @@ export const Navbar = () => {
           <div className="md:hidden flex w-full">
             <div className="flex-col flex pl-2">
               <ul>
-                <Link href="/7rad" className="text-white p-2 text-xs">
+                <Link href="/7rad" className="text-white p-2 text-xs" onClick={handleNav}>
                   7rad
                 </Link>
               </ul>
               <ul>
-                <Link href="/pyrenees" className="text-white p-2 text-xs">
+                <Link href="/pyrenees" className="text-white p-2 text-xs" onClick={handleNav}>
                   Pyrénées
                 </Link>
               </ul>
 
               <ul>
-                <Link href="/project" className="text-white p-2 text-xs">
+                <Link href="/about" className="text-white p-2 text-xs" onClick={handleNav}>
                   About
                 </Link>
               </ul>
