@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import PlausibleProvider from 'next-plausible'
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./components/navbar";
@@ -18,6 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+    <head>
+      <PlausibleProvider domain="bossenbroek.photo" />
+    </head>
       <body className={inter.className}>
         <Navbar />
         <div className="container">
