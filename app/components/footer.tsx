@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import SubscribeForm from "./subscribeForm";
+import {SubscribeForm} from "./subscribeForm";
 
 export const Footer = () => {
   return (
