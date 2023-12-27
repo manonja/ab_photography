@@ -1,3 +1,6 @@
+import {SlideShow} from "./components/slideShow";
+
 export default function Home() {
-  return <main></main>;
+  return <SlideShow/>
+  ;
 }

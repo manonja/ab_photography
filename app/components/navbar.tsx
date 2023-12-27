@@ -10,7 +10,7 @@ export const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <nav className="fixed bg-slate-900 w-full h-24 shadow-xl">
+    <nav className="fixed top-0 z-20 bg-neutral-900 w-full h-24 shadow-xl">
       <div className="flex items-center justify-between h-full w-full px-4 2xl:px-16 ">
         <Link href="/" className="text-white">
           Anton Bossenbroek
@@ -28,12 +28,6 @@ export const Navbar = () => {
                 className="text-white p-2 text-xs hover:border-b"
             >
               Pyrénées
-            </Link>
-            <Link
-              href="/archive"
-              className="text-white p-2 text-xs hover:border-b"
-            >
-              Archive
             </Link>
             <Link
               href="/about"
@@ -61,7 +55,7 @@ export const Navbar = () => {
         <div
           className={
             isMenuOpen
-              ? "fixed left-0 top-20 w-[100%] h-[40%] sm:hidden h-screen bg-[#0f172a] ease-in-duration-500"
+              ? "fixed left-0 top-20 w-[100%] h-[40%] sm:hidden h-screen bg-[#171717] ease-in-duration-500"
               : "fixed left-[-100%] top-0 p-10 ease-in-duration-500 "
           }
         >
@@ -75,11 +69,6 @@ export const Navbar = () => {
               <ul>
                 <Link href="/pyrenees" className="text-white p-2 text-xs">
                   Pyrénées
-                </Link>
-              </ul>
-              <ul>
-                <Link href="/project" className="text-white p-2 text-xs">
-                  Archive
                 </Link>
               </ul>
 
