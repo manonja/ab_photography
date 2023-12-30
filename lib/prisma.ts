@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, Project } from '@prisma/client'
 import { PrismaLibSQL } from '@prisma/adapter-libsql'
 import { createClient } from '@libsql/client'
 
@@ -9,3 +9,11 @@ const libsql = createClient({
 
 const adapter = new PrismaLibSQL(libsql)
 const prisma = new PrismaClient({ adapter })
+
+export const getProjects: Project[] = await prisma.project.findMany({
+    where: {
+      publishedOnline: {
+          not: true
+        }
+    }
+})

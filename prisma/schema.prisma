@@ -9,20 +9,20 @@ datasource db {
 }
 
 model Project {
-    id Int  @id @default(autoincrement())
-    title String @unique
-    subtitle String?
-    description String?
-    publishedOnline Boolean @default(false)
-    photos Photo[]
+  id              Int     @id @default(autoincrement())
+  title           String  @unique
+  subtitle        String?
+  description     String?
+  publishedOnline Boolean @default(false)
+  photos          Photo[]
 }
 
 model Photo {
-    id Int @id @default(autoincrement())
-    source String
-    sequence Int
-    caption String?
-    date String?
-    projectId Int
-    project Project @relation(fields: [projectId], references: [id])
+  id        Int     @id @default(autoincrement())
+  source    String
+  sequence  Int
+  caption   String?
+  date      String?
+  projectId Int
+  project   Project @relation(fields: [projectId], references: [id])
 }

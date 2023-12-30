@@ -2,11 +2,29 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import {usePlausible} from "next-plausible";
+import { usePlausible } from "next-plausible";
+import { Project } from "@prisma/client";
+
+
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const plausible = usePlausible()
+  const plausible = usePlausible();
+
+  const fetchPublishedProjects = async () => {
+    const response = await fetch("/api/projects/published", { method: "GET" });
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    const data: Project[] = await response.json();
+    return data;
+  };
+
+  fetchPublishedProjects().then((data) => {
+    console.log(data);
+  });
+
+  // console.log(projects);
 
   const handleNav = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -22,13 +40,13 @@ export const Navbar = () => {
             <Link
               href="/7rad"
               className="text-white p-2 text-xs hover:border-b"
-              onClick={() => plausible('7RadClicked')}
+              onClick={() => plausible("7RadClicked")}
             >
               7Rad
             </Link>
             <Link
-                href="/pyrenees"
-                className="text-white p-2 text-xs hover:border-b"
+              href="/pyrenees"
+              className="text-white p-2 text-xs hover:border-b"
             >
               Pyrénées
             </Link>
@@ -65,18 +83,30 @@ export const Navbar = () => {
           <div className="md:hidden flex w-full">
             <div className="flex-col flex pl-2">
               <ul>
-                <Link href="/7rad" className="text-white p-2 text-xs" onClick={handleNav}>
+                <Link
+                  href="/7rad"
+                  className="text-white p-2 text-xs"
+                  onClick={handleNav}
+                >
                   7rad
                 </Link>
               </ul>
               <ul>
-                <Link href="/pyrenees" className="text-white p-2 text-xs" onClick={handleNav}>
+                <Link
+                  href="/pyrenees"
+                  className="text-white p-2 text-xs"
+                  onClick={handleNav}
+                >
                   Pyrénées
                 </Link>
               </ul>
 
               <ul>
-                <Link href="/about" className="text-white p-2 text-xs" onClick={handleNav}>
+                <Link
+                  href="/about"
+                  className="text-white p-2 text-xs"
+                  onClick={handleNav}
+                >
                   About
                 </Link>
               </ul>
