@@ -11,6 +11,8 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const plausible = usePlausible();
 
+  // TODO: refactor to remove fetch from a component that uses "use", see
+  // https://github.com/vercel/next.js/issues/52333
   const fetchPublishedProjects = async () => {
     const response = await fetch("/api/projects/published", { method: "GET" });
     if (!response.ok) {
