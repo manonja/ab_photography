@@ -12,7 +12,8 @@ model Project {
     id Int  @id @default(autoincrement())
     title String @unique
     subtitle String?
-    published Boolean @default(false)
+    description String?
+    publishedOnline Boolean @default(false)
     photos Photo[]
 }
 
