@@ -19,6 +19,7 @@ import pyr104 from "../../public/pyr/pyr-104.jpg";
 import pyr108 from "../../public/pyr/pyr-108.jpg";
 import pyr115 from "../../public/pyr/pyr-115.jpg";
 import pyr120 from "../../public/pyr/pyr-120.jpg";
+import { Suspense } from "react";
 
 
 
@@ -27,8 +28,10 @@ export default function Pyrenees() {
   const images = [pyr29, pyr, pyr5, pyr20, pyr36, pyr108, pyr87, pyr65, pyr51, pyr67, pyr78, pyr81, pyr86, pyr104, pyr120, pyr115, pyr92, pyr101 ]
   return (
       <>
-        <Photo photo={pyr} withDivider/>
+      <Photo photo={pyr} withDivider/>
+      <Suspense fallback={<p>Loading...</p>}>
         <Gallery images={images}/>
+      </Suspense>
       </>
 
   );
