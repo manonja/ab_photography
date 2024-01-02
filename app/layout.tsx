@@ -5,17 +5,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
-import { getProjects } from "../lib/prisma";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export async function getServerSideProps() {
-  return {
-    props: {
-      projects: getProjects,
-    }
-  };
-}
 
 export const metadata: Metadata = {
   title: "Anton Bossenbroek",
