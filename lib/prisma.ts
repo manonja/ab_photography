@@ -1,19 +1,23 @@
 import { PrismaClient, Project } from '@prisma/client'
-import { PrismaLibSQL } from '@prisma/adapter-libsql'
-import { createClient } from '@libsql/client'
 
-const libsql = createClient({
-  url: `${process.env.TURSO_DATABASE_URL}`,
-  authToken: `${process.env.TURSO_AUTH_TOKEN}`,
-})
+const prisma = new PrismaClient()
 
-const adapter = new PrismaLibSQL(libsql)
-const prisma = new PrismaClient({ adapter })
-
-export const getProjects: Project[] = await prisma.project.findMany({
+async function main() {
+  // ... you will write your Prisma Client queries here
+  const getProjects: Project[] = await prisma.project.findMany({
     where: {
-      publishedOnline: {
+      isPublished: {
           not: true
         }
     }
 })
+}
+
+main()
+  .catch(async (e) => {
+    console.error(e)
+    process.exit(1)
+  })
+  .finally(async () => {
+    await prisma.$disconnect()
+  })
