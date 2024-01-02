@@ -11,8 +11,6 @@
   "dependencies": {
     "@sentry/nextjs": "^7.91.0",
     "daisyui": "^4.4.24",
-    "@libsql/client": "^0.3.6",
-    "@prisma/adapter-libsql": "^5.7.1",
     "@prisma/client": "^5.7.1",
     "next": "14.0.4",
     "next-plausible": "^3.12.0",
