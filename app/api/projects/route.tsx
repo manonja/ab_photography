@@ -1,19 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
+import prisma from "../../../prisma/client";
 
 // Adding NextRequest prevents caching
-export function GET(request: NextRequest) {
-    return NextResponse.json([{
-        id: 1, 
-        title: "Pyrénées", 
-        subtitle: null,
-        description: "Pyrénées is a photography site for Pyrénées",
-        published: true        
-    }, {
-        id: 2, 
-        title: "7Rad", 
-        subtitle: null,
-        description: "7Rad is a photography site for 7Rad",
-        published: true
-    }])
+export async function GET(request: NextRequest) {
+  const projects = await prisma.project.findMany({
+    where: {
+      isPublished: {
+        not: true,
+      },
+    },
+  });
 
+  return NextResponse.json(projects);
 }
