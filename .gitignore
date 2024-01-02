@@ -38,3 +38,6 @@ dev.db
 
 # Environment files
 *.env*
+
+# Sentry Config File
+.sentryclirc

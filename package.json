@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sentry/nextjs": "^7.91.0",
+    "daisyui": "^4.4.24",
     "@libsql/client": "^0.3.6",
     "@prisma/adapter-libsql": "^5.7.1",
     "@prisma/client": "^5.7.1",
@@ -16,7 +18,8 @@
     "next-plausible": "^3.12.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-mailchimp-subscribe": "^2.1.3"
+    "react-mailchimp-subscribe": "^2.1.3",
+    "sharp": "^0.33.1"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
