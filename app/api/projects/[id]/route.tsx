@@ -21,18 +21,3 @@ export async function GET(
 
   return NextResponse.json(project);
 }
-
-export async function POST(request: NextRequest) {
-  const body = await request.json();
-
-  const project = await prisma.project.create({
-    data: {
-      title: body.title,
-      description: body.description,
-      isPublished: body.isPublished,
-      photos: body.photos,
-    },
-  });
-
-  return NextResponse.json(project, { status: 201 });
-}
