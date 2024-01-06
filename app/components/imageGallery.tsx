@@ -20,10 +20,10 @@ export const ImageGallery:FC<ImageGalleryProps> = ({image}) =>  {
                 <Image
                     alt={image.src}
                     src={image.src}
-                    layout="fill"
-                    style={{objectFit:"cover"}}
+                    fill
+                    sizes="100vh"
                     className={cn(
-                        'group-hover:opacity-80 duration-700 ease-in-out',
+                        'group-hover:opacity-80 duration-700 ease-in-out object-cover',
                         isLoading
                             ? 'grayscale blur-2xl scale-110'
                             : 'grayscale-0 blur-0 scale-100'

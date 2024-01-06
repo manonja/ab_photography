@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { usePlausible } from "next-plausible";
-import { Project } from "@prisma/client";
 
 
 
@@ -11,29 +10,12 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const plausible = usePlausible();
 
-  // TODO: refactor to remove fetch from a component that uses "use", see
-  // https://github.com/vercel/next.js/issues/52333
-  const fetchPublishedProjects = async () => {
-    const response = await fetch("/api/projects/published", { method: "GET" });
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-    const data: Project[] = await response.json();
-    return data;
-  };
-
-  fetchPublishedProjects().then((data) => {
-    console.log(data);
-  });
-
-  // console.log(projects);
-
   const handleNav = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <nav className="fixed top-0 z-20 bg-neutral-900 w-full h-24 shadow-xl">
-      <div className="flex items-center justify-between h-full w-full px-4 2xl:px-16 ">
+    <nav className="fixed top-0 z-15 bg-neutral-900 w-full shadow-lg">
+      <div className="flex items-center justify-between h-full w-full px-4 2xl:px-16 sm:p-6">
         <Link href="/" className="text-white">
           Anton Bossenbroek
         </Link>
@@ -78,8 +60,8 @@ export const Navbar = () => {
         <div
           className={
             isMenuOpen
-              ? "fixed left-0 top-20 w-[100%] h-[40%] sm:hidden h-screen bg-[#171717] ease-in-duration-500"
-              : "fixed left-[-100%] top-0 p-10 ease-in-duration-500 "
+              ? "fixed left-0 top-12 w-[100%] h-screen sm:hidden bg-[#171717] ease-in-duration-800"
+              : "fixed left-[-100%] top-0 p-10 ease-in-duration-800 "
           }
         >
           <div className="md:hidden flex w-full">

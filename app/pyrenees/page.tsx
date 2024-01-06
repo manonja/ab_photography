@@ -1,38 +1,36 @@
 import {Photo} from "../components/photo";
 import {Gallery} from "../components/gallery";
 
-import pyr5 from "../../public/pyr/pyr-5.jpg";
-import pyr20 from "../../public/pyr/pyr-20.jpg";
-import pyr29 from "../../public/pyr/pyr-29.jpg";
-import pyr from "../../public/pyr/pyr.jpg";
-import pyr36 from "../../public/pyr/pyr-36.jpg";
-import pyr51 from "../../public/pyr/pyr-51.jpg";
-import pyr65 from "../../public/pyr/pyr-65.jpg";
-import pyr67 from "../../public/pyr/pyr-67.jpg";
-import pyr78 from "../../public/pyr/pyr-78.jpg";
-import pyr81 from "../../public/pyr/pyr-81.jpg";
-import pyr86 from "../../public/pyr/pyr-86.jpg";
-import pyr87 from "../../public/pyr/pyr-87.jpg";
-import pyr92 from "../../public/pyr/pyr-92.jpg";
-import pyr101 from "../../public/pyr/pyr-101.jpg";
-import pyr104 from "../../public/pyr/pyr-104.jpg";
-import pyr108 from "../../public/pyr/pyr-108.jpg";
-import pyr115 from "../../public/pyr/pyr-115.jpg";
-import pyr120 from "../../public/pyr/pyr-120.jpg";
-import { Suspense } from "react";
+import pyr1 from "../../public/pyr/abossenbroek-pyrenees-00001.webp";
+import pyr2 from "../../public/pyr/abossenbroek-pyrenees-00002.webp";
+import pyr3 from "../../public/pyr/abossenbroek-pyrenees-00003.webp";
+import pyr4 from "../../public/pyr/abossenbroek-pyrenees-00005.webp";
+import pyr5 from "../../public/pyr/abossenbroek-pyrenees-00006.webp";
+import pyr6 from "../../public/pyr/abossenbroek-pyrenees-00007.webp";
+import pyr7 from "../../public/pyr/abossenbroek-pyrenees-00008.webp";
+import pyr8 from "../../public/pyr/abossenbroek-pyrenees-00009.webp";
+import pyr9 from "../../public/pyr/abossenbroek-pyrenees-00010.webp";
+import pyr10 from "../../public/pyr/abossenbroek-pyrenees-00011.webp";
+import pyr11 from "../../public/pyr/abossenbroek-pyrenees-00012.webp";
+import pyr12 from "../../public/pyr/abossenbroek-pyrenees-00013.webp";
+import pyr13 from "../../public/pyr/abossenbroek-pyrenees-00014.webp";
+import pyr14 from "../../public/pyr/abossenbroek-pyrenees-00015.webp";
+import pyr15 from "../../public/pyr/abossenbroek-pyrenees-00016.webp";
+import pyr16 from "../../public/pyr/abossenbroek-pyrenees-00018.webp";
 
 
 
 
 export default function Pyrenees() {
-  const images = [pyr29, pyr, pyr5, pyr20, pyr36, pyr108, pyr87, pyr65, pyr51, pyr67, pyr78, pyr81, pyr86, pyr104, pyr120, pyr115, pyr92, pyr101 ]
+  const images = [pyr1, pyr2, pyr3, pyr4, pyr5, pyr6, pyr7, pyr8, pyr9, pyr10, pyr11, pyr12, pyr13, pyr14, pyr15, pyr16 ]
   return (
-      <>
-      <Photo photo={pyr} withDivider/>
-      <Suspense fallback={<p>Loading...</p>}>
+    
+      <div className="container sm:my-12">
+      <Photo photo={pyr1} withDivider/>
         <Gallery images={images}/>
-      </Suspense>
-      </>
+      </div>
+       
+      
 
   );
 }

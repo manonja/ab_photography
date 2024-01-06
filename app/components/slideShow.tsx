@@ -2,14 +2,11 @@
 import React, {FC, useState} from 'react';
 
 import Image from "next/image";
-import pyr5 from "../../public/pyr/pyr-5.jpg";
-import pyr from "../../public/pyr/pyr.jpg";
-import pyr20 from "../../public/pyr/pyr-20.jpg";
-import pyr29 from "../../public/pyr/pyr-29.jpg";
+import pyr20 from "../../public/pyr/abossenbroek-pyrenees-00005.webp";
 import portrait1 from "../../public/slides/portrait-1.jpg";
 import landscape1 from "../../public/slides/landscape-1.jpg";
 import miami1 from "../../public/slides/miami-1.jpg";
-import rad1 from "../../public/7rad/7rad1.jpg";
+import rad1 from "../../public/7rad/abossenbroek-7rad-00008.webp";
 
 
 
@@ -29,13 +26,13 @@ export const SlideShow:FC = () => {
 
     return (
         <div
-            className="flex w-full justify-center items-center overscroll-none">
+            className=" container flex w-full justify-center items-center overscroll-none pt-24">
             <div
-                className="flex h-screen w-full justify-center items-center"
+                className="flex h-[80%] w-[80%] justify-center items-center"
                 >
                 {imagesTest.map((image, index) => (
                     <div key={index} className={index === currentSlide ? ' w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none' : 'hidden'}>
-                        <Image src={image} alt={`Slide ${index + 1}`} className="block w-full" />
+                        <Image src={image} alt={`Slide ${index + 1}`} className="object-scale-down" />
                     </div>
                 ))}
 
