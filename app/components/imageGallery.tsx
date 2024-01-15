@@ -31,7 +31,6 @@ export const ImageGallery:FC<ImageGalleryProps> = ({image}) =>  {
                     onLoad={() => setLoading(false)}
                 />
             </div>
-            {/*<h3 className="mt-4 text-sm text-gray-700">{image.src}</h3>*/}
         </a>
     );
 }
