@@ -1,5 +1,6 @@
 import { Description } from "../components/description";
-import {SlideShow} from "../components/slideShow";
+import { Photo } from "../components/photo";
+import profilePic from "../../public/IMG_4494.jpeg";
 
 export default function About() {
   const text1="Born in France and raised in the Netherlands, my photographic journey is deeply rooted in a passion for capturing the intricate details of the world around us. My love for large-format photography stems from this unyielding desire to portray reality with the utmost clarity and precision.";
@@ -15,6 +16,7 @@ export default function About() {
       <Description text={text3}/>
       <Description text={text4}/>
       <Description text={text5}/>
+      <Photo photo={profilePic} />
     </div>
   )
 
