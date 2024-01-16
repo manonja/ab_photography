@@ -14,8 +14,8 @@ export const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <nav className="fixed top-0 z-15 bg-neutral-900 w-full shadow-lg">
-      <div className="flex items-center justify-between h-full w-full px-4 2xl:px-16 sm:p-6">
+    <nav className="fixed top-0 z-20 bg-neutral-900 w-full sm:h-24 shadow-xl">
+      <div className="flex items-center justify-between h-full w-full px-4 2xl:px-16 ">
         <Link href="/" className="text-white">
           Anton Bossenbroek
         </Link>
@@ -60,7 +60,7 @@ export const Navbar = () => {
         <div
           className={
             isMenuOpen
-              ? "fixed left-0 top-12 w-[100%] h-screen sm:hidden bg-[#171717] ease-in-duration-800"
+              ? "fixed left-0 top-16 w-[100%] h-screen sm:hidden bg-[#171717] ease-in-duration-800"
               : "fixed left-[-100%] top-0 p-10 ease-in-duration-800 "
           }
         >

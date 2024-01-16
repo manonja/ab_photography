@@ -26,7 +26,7 @@ export default function Pyrenees() {
   return (
     
       <div className="container sm:my-12">
-      <Photo photo={pyr1} withDivider/>
+      <Photo photo={pyr1}/>
         <Gallery images={images}/>
       </div>
        
