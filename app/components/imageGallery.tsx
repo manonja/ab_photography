@@ -1,11 +1,13 @@
 'use client';
+
 import {FC, useState} from "react";
-import {ImageType} from "../types";
-import FullScreenDialog from "./fullScreenDialog";
+import { ListBlobResultBlob } from "@vercel/blob";
 import Image from "next/image";
 
+import FullScreenDialog from "./fullScreenDialog";
+
 interface ImageGalleryProps {
-    image: ImageType
+    image: ListBlobResultBlob;
 }
 
 function cn(...classes: string[]) {
@@ -24,8 +26,8 @@ export const ImageGallery:FC<ImageGalleryProps> = ({image}) =>  {
                 <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
                 {/* eslint-disable-next-line react/jsx-no-undef */}
                 <Image
-                    alt={image.src}
-                    src={image.src}
+                    alt={image.pathname}
+                    src={image.url}
                     fill
                     sizes="100vh"
                     className={cn(
@@ -40,7 +42,7 @@ export const ImageGallery:FC<ImageGalleryProps> = ({image}) =>  {
     
             </div>
             <FullScreenDialog isOpen={isOpen} onClose={closeDialog}>
-                <Image src={image.src} alt={image.src} width={image.width} height={image.height} className="object-contain max-w-full max-h-full overflow-auto" />
+                <Image src={image.url} alt={image.pathname} fill className="object-contain max-w-full max-h-full overflow-auto" />
             </FullScreenDialog>
         </>
     
