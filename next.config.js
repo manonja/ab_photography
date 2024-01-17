@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'esrkwjpqkgtn4wew.public.blob.vercel-storage.com',
+          port: '',
+        },
+      ],
+    },
     typescript: {
         // !! WARN !!
         // To remove once mailchimp subscription fixed
