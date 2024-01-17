@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sentry/nextjs": "^7.91.0",
+    "@sentry/nextjs": "^7.93.0",
     "@vercel/blob": "^0.18.0",
     "daisyui": "^4.4.24",
     "next": "14.0.4",
