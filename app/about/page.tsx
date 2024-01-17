@@ -8,12 +8,12 @@ export default function About() {
   const text5 = "Each frame I capture is more than a mere image; it's a narrative, a slice of reality presented with a clarity that challenges and inspires. Through my lens, I invite you on a journey to discover the subtle beauty and profound truths hidden within our everyday surroundings. Welcome to my world of photography, where every shot is a testament to the power of detail and the beauty of reality.";
 
   return (
-    <>
+    <div className="container pt-24">
       <Description text={text1}/>
       <Description text={text2}/>
       <Description text={text3}/>
       <Description text={text4}/>
       <Description text={text5}/>
-    </>
+    </div>
   )
 }
