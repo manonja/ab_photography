@@ -5,7 +5,7 @@ import {Paragraph} from "../components/paragraph";
 
 export default async function SevenRad() {
   async function getMainImage() {
-    const mainImage = await head("https://esrkwjpqkgtn4wew.public.blob.vercel-storage.com/7rad1-yeBG8p4JBIfcVAlxnJOPgb4VSarzSu.webp")
+    const mainImage = await head("https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/7rad1-66wg3nQAQ092LyJ8jeFVTt8j1EkOsa.webp")
     return mainImage;
   }
   async function get7RadImages() {

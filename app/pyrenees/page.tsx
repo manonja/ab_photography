@@ -6,7 +6,7 @@ import {Gallery} from "../components/gallery";
 
 export async function Pyrenees() {
   async function getMainImage() {
-    const mainImage = await head("https://esrkwjpqkgtn4wew.public.blob.vercel-storage.com/pyr-20-fKZrFIaNDmRjlArIue8cJHoBh22m0S.webp")
+    const mainImage = await head("https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/pyr-120-rGUwO6v9E8pRxD3Qwp52OXERoP3hXC.webp")
     return mainImage;
   }
   async function getPyrImages() {
