@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'dse0fs1ooxwlfxjh.public.blob.vercel-storage.com',
+          port: '',
+        },
+      ],
+    },
     typescript: {
         // !! WARN !!
         // To remove once mailchimp subscription fixed
@@ -9,6 +18,7 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+
 
 
 // Injected content via Sentry wizard below

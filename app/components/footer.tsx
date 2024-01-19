@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <footer className="bg-neutral-900 w-full h-24">
       <div className="flex flex-col items-start justify-center sm:flex-row sm:items-center sm:justify-between h-full  px-4 2xl:px-16 sm:mt-6">
-        <div className="flex justify-between w-full sm:w-auto">
+        <div className="flex justify-between items-start w-full sm:w-auto">
           <SubscribeForm/>
           <div className="sm:hidden flex items-center space-x-4">
             <div>
