@@ -42,7 +42,7 @@ export const ImageGallery:FC<ImageGalleryProps> = ({image}) =>  {
     
             </div>
             <FullScreenDialog isOpen={isOpen} onClose={closeDialog}>
-                <Image src={image.url} alt={image.pathname} fill className="object-contain max-w-full max-h-full overflow-auto" />
+                <Image src={image.url} alt={image.pathname} width="1000" height="1000" className="object-contain max-w-full max-h-full overflow-auto" />
             </FullScreenDialog>
         </>
     

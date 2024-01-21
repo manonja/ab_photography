@@ -13,7 +13,7 @@ const FullScreenDialog: FC<Props> = ({ children, isOpen, onClose }) => {
 return (
     <div className="fixed inset-0 bg-gray-950 flex items-center justify-center z-50">
       <button 
-        className="absolute top-4 right-4 text-xl"
+        className="absolute top-4 right-4 text-xl text-white "
         onClick={onClose}
       >
         X
