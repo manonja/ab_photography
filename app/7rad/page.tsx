@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default async function SevenRad() {
   async function getMainImage() {
-    const mainImage = await head("https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/7rad1-66wg3nQAQ092LyJ8jeFVTt8j1EkOsa.webp")
+    const mainImage = await head("https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/7rad-2023-12-01%2005.56.12CF003592-hajKs83BhEX8gTM86o5esufphq1VCR.webp")
     return mainImage;
   }
   async function get7RadImages() {
