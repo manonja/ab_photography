@@ -36,7 +36,7 @@ export const SlideShow:FC<Props> = ({images}) => {
                 >
                 {images.blobs.map((image, index) => (
                     <div key={index} className={index === currentSlide ? ' w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none' : 'hidden'}>
-                        <Image src={image.url} alt={`Slide ${index + 1}`}  width={0}height={0} sizes="100vw" style={{ width: '100%', height: 'auto' }} className="object-contain" />
+                        <Image src={image.url} alt={`Slide ${index + 1}`} width={0}height={0} sizes="100vw" style={{ width: '100%', height: 'auto' }} className="object-contain" priority />
                     </div>
                 ))}
             </div>
