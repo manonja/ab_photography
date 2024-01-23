@@ -20,7 +20,7 @@ const pyrImages = await getPyrImages();
 
   return (
       <>
-      <Photo photo={mainImage} withDivider/>
+      <Photo photo={mainImage} priority/>
       <Gallery images={pyrImages}/>
       </>
 

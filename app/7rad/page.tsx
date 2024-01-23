@@ -25,7 +25,7 @@ const images = await get7RadImages();
 
   return (
       <>
-        <Photo photo={mainImage} withDivider/>
+        <Photo photo={mainImage} priority/>
         <Gallery images={images}/>
         <Description text={text1}/>  
         <Description text={text2}/>      
