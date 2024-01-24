@@ -29,19 +29,7 @@ const images = await get7RadImages();
         <Gallery images={images}/>
         <Description text={text1}/>  
         <Description text={text2}/>      
-        <Description text={text3}/>   
-        <div className="flex flex-col w-full items-end sm:pt-4 text-xs text-gray-300">Ressources:</div>
-      
-        <Link  
-          className="flex flex-col w-full items-end sm:pt-4 text-xs text-gray-300  hover:border-b"
-          href="https://github.com/pyalanysis/pyalanysis"> 
-          Python Package 
-        </Link>
-        <Link  
-          className="flex flex-col w-full items-end sm:pt-2 text-xs text-gray-300 hover:border-b"
-          href="https://www.magnumphotos.com/shop/11-photographic-stories-from-magnums-mentees/"> 
-          Magnum Article 
-        </Link>        
+        <Description text={text3} links/>   
       </>
   )
 }
