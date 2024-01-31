@@ -3,7 +3,7 @@ import Image from "next/image";
 import { HeadBlobResult } from '@vercel/blob';
 
 interface PhotoProps {
-    photo: HeadBlobResult;
+    photo: string;
     withDivider?: boolean;
     priority?: boolean
 }
@@ -14,7 +14,7 @@ export const Photo:FC<PhotoProps> = ({photo, withDivider, priority}) => {
         <div
             className="flex w-full justify-center items-center">
             <div className="flex flex-col md:h-screen h-[60vh] w-full sm:w-11/12 justify-center">
-                <Image src={photo.url} alt={photo.pathname} width={0}height={0} sizes="100vw" style={{ width: '100%', height: 'auto' }} className="object-contain" priority={priority} />
+                <Image src={photo} alt={photo} width={0}height={0} sizes="100vw" style={{ width: '100%', height: 'auto' }} className="object-contain" priority={priority} />
                 {/* <div className="text-xs pt-2 pb-24 font-light text-gray-400 md:pb-8">radiance</div> */}
                 {withDivider && <div className="border-t border-gray-700"/>}
             </div>

@@ -1,27 +1,25 @@
-import { list, head } from '@vercel/blob';
-
 import {Photo} from "../components/photo";
 import {Gallery} from "../components/gallery";
+import { Photo as PhotoType } from "../types/photo";
 
 
-export async function Pyrenees() {
-  async function getMainImage() {
-    const mainImage = await head("https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/pyr-78-AWOyvPdBNmFesjvDGQiCc5ExM16mVf.webp")
-    return mainImage;
-  }
-  async function getPyrImages() {
-    const pyrImages = await list({prefix: "pyr"})
-    return pyrImages;  
+async function getPhotos() {
+  const res = await fetch(`${process.env.URL}/api/pyrenees`, {method: 'GET'})  
+  const photos = await res.json()
+ 
+  return photos
 }
 
-const mainImage = await getMainImage();
-const pyrImages = await getPyrImages();
+export async function Pyrenees() {
+  const photos = await getPhotos()
 
+  const galleryBlobs = photos.map((photo: PhotoType) => photo.gallery_blob);
+  const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[5];
 
   return (
       <>
-      <Photo photo={mainImage} priority/>
-      <Gallery images={pyrImages}/>
+      <Photo photo={landingImage} priority/>
+      <Gallery images={galleryBlobs}/>
       </>
 
   );

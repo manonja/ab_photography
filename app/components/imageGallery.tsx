@@ -5,9 +5,10 @@ import { ListBlobResultBlob } from "@vercel/blob";
 import Image from "next/image";
 
 import FullScreenDialog from "./fullScreenDialog";
+import useDevice from "../hooks/useDevice";
 
 interface ImageGalleryProps {
-    image: ListBlobResultBlob;
+    image: string;
 }
 
 function cn(...classes: string[]) {
@@ -20,18 +21,20 @@ export const ImageGallery:FC<ImageGalleryProps> = ({image}) =>  {
 
     const openDialog = () => setIsOpen(true);
     const closeDialog = () => setIsOpen(false);
-
+ 
     return (
         <>
-                <div className="w-full aspect-w-1 aspect-h-1 bg-grey-900 overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
+                <div className="w-full bg-grey-900 overflow-hidden">
                 {/* eslint-disable-next-line react/jsx-no-undef */}
                 <Image
-                    alt={image.pathname}
-                    src={image.url}
-                    fill
+                    alt={image}
+                    src={image}
+                    priority
+                    width={0}height={0}
                     sizes="(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 100vw"
+                    style={{ width: '100%', height: 'auto' }}
                     className={cn(
-                        'group-hover:opacity-80 duration-700 ease-in-out object-cover cursor-pointer',
+                        'group-hover:opacity-80 duration-700 ease-in-out object-cover cursor-pointer max-h-48',
                         isLoading
                             ? 'grayscale blur-2xl scale-110'
                             : 'grayscale-0 blur-0 scale-100'
@@ -42,8 +45,8 @@ export const ImageGallery:FC<ImageGalleryProps> = ({image}) =>  {
     
             </div>
             <FullScreenDialog isOpen={isOpen} onClose={closeDialog}>
-                <Image src={image.url} alt={image.pathname} width={0}height={0} sizes="(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 100vw"
-                style={{ width: '100%', height: 'auto' }} className="object-contain max-w-full max-h-full overflow-auto" />
+                <Image src={image} alt={image} width={0}height={0} sizes="(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 100vw"
+                style={{ width: '100%', height: 'auto' }} className="object-contain max-w-390 max-h-310 overflow-auto" priority />
             </FullScreenDialog>
         </>
     
