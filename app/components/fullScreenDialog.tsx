@@ -15,21 +15,18 @@ interface Props {
 
 const FullScreenDialog: FC<Props> = ({ images, sequence, isOpen, onClose }) => {
 
-    const [currentPhoto, setCurrentPhoto] = useState(sequence || 0);
+    const [currentPhoto, setCurrentPhoto] = useState(sequence);
     const side = useMousePosition();
     
     if (!isOpen) return null;
 
     const nextPhoto = () => {
-      setCurrentPhoto((prevSlide) => (prevSlide === sequence - 1 ? 0 : prevSlide + 1));
+      setCurrentPhoto((prevSlide) => (prevSlide === images.length  ? sequence : prevSlide + 1));
     };
 
     const prevPhoto = () => {
-      setCurrentPhoto((prevSlide) => (prevSlide === 0 ? sequence - 1 : prevSlide - 1));
+      setCurrentPhoto((prevSlide) => (prevSlide === sequence ? images.length : prevSlide - 1));
     };
-
-  
-    console.log(sequence)
 
 return (
     <div className="fixed inset-0 bg-gray-950 z-50">
@@ -48,7 +45,7 @@ return (
                 >
                 {images.map((image) => (
                     <div key={image.sequence} className={image.sequence === currentPhoto ? ' w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none' : 'hidden'}>
-                        <Image src={image.desktop_blob} alt={`Slide ${image.sequence + 1}`} width={0}height={0} sizes="100vw" style={{ width: '100%', height: '80%' }} className="object-contain" priority />
+                        <Image src={image.desktop_blob} alt={`Photo ${sequence}`} width={0}height={0} sizes="100vw" style={{ width: '100%', height: '80%' }} className="object-contain" priority />
                     </div>
                 ))}
             </div>

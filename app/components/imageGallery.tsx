@@ -5,7 +5,6 @@ import Image from "next/image";
 
 import FullScreenDialog from "./fullScreenDialog";
 import { Photo } from "../types/photo";
-import { SlideShow } from "./slideShow";
 
 interface ImageGalleryProps {
     image: Photo;
@@ -51,7 +50,6 @@ export const ImageGallery:FC<ImageGalleryProps> = ({image, images}) =>  {
                 sequence={image.sequence}
                 isOpen={isOpen}
                 onClose={closeDialog}/>
-
             </>
     
     );
