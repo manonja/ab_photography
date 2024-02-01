@@ -16,7 +16,7 @@ export const Description: FC<Props> = ({ text, links }) => {
     </div>
 
       {links && (
-        <div className="flex flex-col ">
+        <div className="flex flex-col pt-8 sm:pt-0">
           <Link
             className="flex flex-col items-end sm:pt-4 text-xs text-gray-300 hover:text-orange-500"
             href="https://github.com/pyalanysis/pyalanysis"

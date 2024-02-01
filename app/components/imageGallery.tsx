@@ -34,7 +34,7 @@ export const ImageGallery:FC<ImageGalleryProps> = ({image, images}) =>  {
                     sizes="(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 100vw"
                     style={{ width: '100%', height: 'auto' }}
                     className={cn(
-                        'group-hover:opacity-80 duration-700 ease-in-out object-cover cursor-pointer max-h-48',
+                        'group-hover:opacity-80 duration-700 ease-in-out object-cover cursor-pointer sm:max-h-48 sm:max-w-[100%] max-w-64',
                         isLoading
                             ? 'grayscale blur-2xl scale-110'
                             : 'grayscale-0 blur-0 scale-100'

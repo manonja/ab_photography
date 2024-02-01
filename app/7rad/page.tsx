@@ -27,10 +27,10 @@ export default async function SevenRad() {
   return (
     <>
       <Photo photo={landingImage} priority />
-      <Gallery images={photos} />
       <Description text={text1} />
       <Description text={text2} />
       <Description text={text3} links />
+      <Gallery images={photos} />
     </>
   );
 }
