@@ -19,6 +19,6 @@ export async function GET() {
     },
   });
 
-  return NextResponse.json(photos);
+  return NextResponse.json(photos, {status: 200});
 
 }

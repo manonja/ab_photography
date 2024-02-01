@@ -14,7 +14,7 @@ async function getPhotos() {
 export default async function SevenRad() {
   const photos = await getPhotos();
 
-  const galleryBlobs = photos.map((photo: PhotoType) => photo.gallery_blob);
+  // const galleryBlobs = photos.map((photo: PhotoType) => photo.gallery_blob);
   const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[6];
 
   const text1 =
@@ -27,7 +27,7 @@ export default async function SevenRad() {
   return (
     <>
       <Photo photo={landingImage} priority />
-      <Gallery images={galleryBlobs} />
+      <Gallery images={photos} />
       <Description text={text1} />
       <Description text={text2} />
       <Description text={text3} links />

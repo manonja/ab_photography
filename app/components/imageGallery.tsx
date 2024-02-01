@@ -4,16 +4,19 @@ import {FC, useState} from "react";
 import Image from "next/image";
 
 import FullScreenDialog from "./fullScreenDialog";
+import { Photo } from "../types/photo";
+import { SlideShow } from "./slideShow";
 
 interface ImageGalleryProps {
-    image: string;
+    image: Photo;
+    images: Photo[]
 }
 
 function cn(...classes: string[]) {
     return classes.filter(Boolean).join(' ');
 }
 
-export const ImageGallery:FC<ImageGalleryProps> = ({image}) =>  {
+export const ImageGallery:FC<ImageGalleryProps> = ({image, images}) =>  {
     const [isLoading, setLoading] = useState(true);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -25,8 +28,8 @@ export const ImageGallery:FC<ImageGalleryProps> = ({image}) =>  {
                 <div className="w-full bg-grey-900 overflow-hidden">
                 {/* eslint-disable-next-line react/jsx-no-undef */}
                 <Image
-                    alt={image}
-                    src={image}
+                    alt={image.caption}
+                    src={image.gallery_blob}
                     priority
                     width={0}height={0}
                     sizes="(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 100vw"
@@ -42,11 +45,14 @@ export const ImageGallery:FC<ImageGalleryProps> = ({image}) =>  {
                 />
     
             </div>
-            <FullScreenDialog isOpen={isOpen} onClose={closeDialog}>
-                <Image src={image} alt={image} width={0}height={0} sizes="(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 100vw"
-                style={{ width: '100%', height: 'auto' }} className="object-contain max-w-390 max-h-310 overflow-auto" priority />
-            </FullScreenDialog>
-        </>
+
+            <FullScreenDialog
+                images={images}
+                sequence={image.sequence}
+                isOpen={isOpen}
+                onClose={closeDialog}/>
+
+            </>
     
     );
 }

@@ -13,13 +13,12 @@ async function getPhotos() {
 export async function Pyrenees() {
   const photos = await getPhotos()
 
-  const galleryBlobs = photos.map((photo: PhotoType) => photo.gallery_blob);
   const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[5];
 
   return (
       <>
       <Photo photo={landingImage} priority/>
-      <Gallery images={galleryBlobs}/>
+      <Gallery images={photos}/>
       </>
 
   );
