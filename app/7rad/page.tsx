@@ -15,7 +15,7 @@ export default async function SevenRad() {
   const photos = await getPhotos();
 
   const galleryBlobs = photos.map((photo: PhotoType) => photo.gallery_blob);
-  const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[35];
+  const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[6];
 
   const text1 =
     "The Netherlands has the highest level of artificial light at night per square kilometer of any OECD country. In 2020, satellites measured an average radiance (rad) in the Netherlands of 7 rad with a maximum of 10,596 rad. In perspective, New York state, USA has an average radiance of 2 rad and a maximum of 411 rad.";

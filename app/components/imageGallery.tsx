@@ -1,11 +1,9 @@
 'use client';
 
 import {FC, useState} from "react";
-import { ListBlobResultBlob } from "@vercel/blob";
 import Image from "next/image";
 
 import FullScreenDialog from "./fullScreenDialog";
-import useDevice from "../hooks/useDevice";
 
 interface ImageGalleryProps {
     image: string;

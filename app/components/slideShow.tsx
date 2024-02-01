@@ -3,13 +3,10 @@ import React, {FC, useState} from 'react';
 
 import Image from "next/image";
 import useMousePosition from '../hooks/useMousePosition';
-import { ListBlobResultBlob } from '@vercel/blob';
 
 
 interface Props {
-    images: {
-        blobs : ListBlobResultBlob[]
-    }
+    images: string[]
 }
 
 
@@ -19,11 +16,11 @@ export const SlideShow:FC<Props> = ({images}) => {
 
 
     const nextSlide = () => {
-        setCurrentSlide((prevSlide) => (prevSlide === images.blobs.length - 1 ? 0 : prevSlide + 1));
+        setCurrentSlide((prevSlide) => (prevSlide === images.length - 1 ? 0 : prevSlide + 1));
     };
 
     const prevSlide = () => {
-        setCurrentSlide((prevSlide) => (prevSlide === 0 ? images.blobs.length - 1 : prevSlide - 1));
+        setCurrentSlide((prevSlide) => (prevSlide === 0 ? images.length - 1 : prevSlide - 1));
     };
 
     return (
@@ -34,9 +31,9 @@ export const SlideShow:FC<Props> = ({images}) => {
             <div
                 className="flex h-full w-full justify-center items-center"
                 >
-                {images.blobs.map((image, index) => (
+                {images.map((image, index) => (
                     <div key={index} className={index === currentSlide ? ' w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none' : 'hidden'}>
-                        <Image src={image.url} alt={`Slide ${index + 1}`} width={0}height={0} sizes="100vw" style={{ width: '100%', height: 'auto' }} className="object-contain" priority />
+                        <Image src={image} alt={`Slide ${index + 1}`} width={0}height={0} sizes="100vw" style={{ width: '100%', height: 'auto' }} className="object-contain" priority />
                     </div>
                 ))}
             </div>

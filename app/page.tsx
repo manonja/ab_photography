@@ -1,14 +1,20 @@
 import {SlideShow} from "./components/slideShow";
-import { list } from "@vercel/blob";
+import { Photo } from "./types/photo";
 
-export default async function Home() {
 
-  async function getSlidesImages() {
-    const slideImages = await list({prefix: "slide"})
-    return slideImages;  
+async function getPhotos() {
+  const res = await fetch(`${process.env.URL}/api`, { method: "GET" });
+
+  const photos = await res.json();
+
+  return photos;
 }
 
-  const images = await getSlidesImages();
 
-return <SlideShow images={images}/>;
+export default async function Home() {
+  const photos = await getPhotos();
+
+  const slidesImages = photos.map((photo: Photo) => photo.desktop_blob);
+
+  return <SlideShow images={slidesImages}/>;
 }
