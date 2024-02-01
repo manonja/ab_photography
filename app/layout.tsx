@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Anton Bossenbroek",
   description: "Anton Bossenbroek - Photography",
+  icons: {
+    icon: '/logo-ab.jpeg',
+  },
 };
 
 export default function RootLayout({
@@ -21,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
     <head>
-      <PlausibleProvider domain="bossenbroek.photo" />
+    <PlausibleProvider domain="bossenbroek.photo" />
     </head>
       <body className={inter.className}>
         <Navbar />
