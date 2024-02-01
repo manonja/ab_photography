@@ -1,5 +1,5 @@
 'use client';
-import React, {FC, useState} from 'react';
+import React, {FC, useState, useEffect, useCallback} from 'react';
 
 import Image from "next/image";
 import useMousePosition from '../hooks/useMousePosition';
@@ -15,13 +15,22 @@ export const SlideShow:FC<Props> = ({images}) => {
     const side = useMousePosition();
 
 
-    const nextSlide = () => {
+    const nextSlide = useCallback(() => {
         setCurrentSlide((prevSlide) => (prevSlide === images.length - 1 ? 0 : prevSlide + 1));
-    };
+    }, [images.length]);
 
     const prevSlide = () => {
         setCurrentSlide((prevSlide) => (prevSlide === 0 ? images.length - 1 : prevSlide - 1));
     };
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            nextSlide();
+        }, 4000);
+
+        // Clear the timer when the component is unmounted or before the next render
+        return () => clearTimeout(timer);
+    }, [currentSlide, nextSlide]);
 
     return (
         <div
