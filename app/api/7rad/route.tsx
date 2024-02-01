@@ -1,9 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from '@prisma/client'
+import { NextResponse } from "next/server";
+import prisma  from '../../../prisma/client';
 import { getProjectId } from "../../utils/getProjectId";
-
-
-const prisma = new PrismaClient()
 
 export async function GET() {
 
