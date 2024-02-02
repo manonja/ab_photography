@@ -1,21 +1,20 @@
 import {SlideShow} from "./components/slideShow";
 import { Photo } from "./types/photo";
-import { getProjectId } from "./utils/getProjectId";
 
-import prisma from '../prisma/client';
+
+// async function getPhotos() {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api`, { method: "GET" });
+
+//   const photos = await res.json();
+
+//   return photos;
+// }
+
 
 export default async function Home() {
+  // const photos = await getPhotos();
 
-  const projectId = await getProjectId("7 Rad")
+  // const slidesImages = photos.map((photo: Photo) => photo.desktop_blob);
 
-  const photos = await prisma.photo.findMany({
-      where: {
-        projectId: projectId,
-      },
-    });
-
-  const slidesImages = photos.map((photo: Photo) => photo.desktop_blob);
-
-  return <SlideShow images={slidesImages}/>;
-
+  return <div>Work In Progress</div>;
 }
