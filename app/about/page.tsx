@@ -7,7 +7,7 @@ export default function About() {
   const text4 = "Currently, I am engaged in a project initially developed in collaboration with Magnum through their mentorship program. This endeavor maps the artificial light over the Netherlands at night, revealing the often unseen impacts of human existence on our environment. It's a visual exploration that seeks to illustrate the hidden aspects of our daily lives, highlighting the complexity found in the interplay of light and darkness.";
 
   return (
-    <div className="container pt-24">
+    <div className="container sm:pt-24">
       <Description text={text1}/>
       <Description text={text2}/>
       <Description text={text3}/>

@@ -1,15 +1,20 @@
-import {Photo} from "./components/photo";
-import { list, head } from "@vercel/blob";
+import {SlideShow} from "./components/slideShow";
+import { Photo } from "./types/photo";
+
+
+// async function getPhotos() {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api`, { method: "GET" });
+
+//   const photos = await res.json();
+
+//   return photos;
+// }
+
 
 export default async function Home() {
+  // const photos = await getPhotos();
 
-  async function getMainImage() {
-    const mainImage = await head("https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-04%2021.18.51CF002270-wuD67C1ihn8Y9aXAh5d8BljEa5OCqh.webp")
-    return mainImage;
-  }
+  // const slidesImages = photos.map((photo: Photo) => photo.desktop_blob);
 
-const mainImage = await getMainImage();
-
-
-return <Photo photo={mainImage}/>;
+  return <div>Work In Progress</div>;
 }
