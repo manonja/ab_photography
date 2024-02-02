@@ -1,5 +1,6 @@
 import {Gallery} from "../components/gallery";
 import { Photo as PhotoType } from "../types/photo";
+import { Photo } from "../components/photo";
 
 
 async function getPhotos() {
