@@ -2,7 +2,6 @@ import {SlideShow} from "./components/slideShow";
 import { Photo } from "./types/photo";
 import { getBaseUrl } from "./utils/getBaseUrl";
 
-
 async function getPhotos() {
   const baseUrl = getBaseUrl()
   console.log("ENVIRONEMENT IN COMPONENT", process.env.NODE_ENV)
@@ -22,4 +21,5 @@ export default async function Home() {
   const slidesImages = photos.map((photo: Photo) => photo.desktop_blob);
 
   return <SlideShow images={slidesImages}/>;
+
 }
