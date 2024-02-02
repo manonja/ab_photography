@@ -3,7 +3,7 @@ import { Photo } from "./types/photo";
 
 
 async function getPhotos() {
-  const res = await fetch(`${process.env.URL}/api`, { method: "GET" });
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api`, { method: "GET" });
 
   const photos = await res.json();
 

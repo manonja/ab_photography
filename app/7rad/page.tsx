@@ -4,7 +4,7 @@ import { Photo as PhotoType } from "../types/photo";
 import { Photo } from "../components/photo";
 
 async function getPhotos() {
-  const res = await fetch(`${process.env.URL}/api/7rad`, { method: "GET" });
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/7rad`, { method: "GET" });
 
   const photos = await res.json();
 

@@ -4,7 +4,7 @@ import { Photo as PhotoType } from "../types/photo";
 
 
 async function getPhotos() {
-  const res = await fetch(`${process.env.URL}/api/pyrenees`, {method: 'GET'})  
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/pyrenees`, {method: 'GET'})  
   const photos = await res.json()
  
   return photos
