@@ -4,10 +4,7 @@ import { getBaseUrl } from "./utils/getBaseUrl";
 
 async function getPhotos() {
   const baseUrl = getBaseUrl()
-  console.log("ENVIRONEMENT IN COMPONENT", process.env.NODE_ENV)
-  console.log(`Resolved deployment URL to: ${baseUrl}`)
-  console.log("next_public_url:", process.env.NEXT_PUBLIC_URL)
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api`, { method: "GET" });
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api`, { method: "GET" });
 
   const photos = await res.json();
 
