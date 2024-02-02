@@ -2,19 +2,20 @@ import { Description } from "../components/description";
 import { Gallery } from "../components/gallery";
 import { Photo as PhotoType } from "../types/photo";
 import { Photo } from "../components/photo";
+import { getProjectId } from "../utils/getProjectId";
+
+import prisma from '../../prisma/client';
 
 
-async function getPhotos() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/7rad`, { method: "GET" });
-
-
-  const photos = await res.json();
-
-  return photos;
-}
-  
 export default async function SevenRad() {
-  const photos = await getPhotos();
+
+  const projectId = await getProjectId("7 Rad")
+
+  const photos = await prisma.photo.findMany({
+      where: {
+        projectId: projectId,
+      },
+    });
 
   // const galleryBlobs = photos.map((photo: PhotoType) => photo.gallery_blob);
   const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[6];
