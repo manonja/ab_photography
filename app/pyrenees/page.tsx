@@ -4,6 +4,7 @@ import { Photo as PhotoType } from "../types/photo";
 
 
 async function getPhotos() {
+  console.log(process.env.NEXT_PUBLIC_VERCEL_URL)
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL}/api/pyrenees`, {method: 'GET'})  
   const photos = await res.json()
  
