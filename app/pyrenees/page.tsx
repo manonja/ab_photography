@@ -1,7 +1,6 @@
 import {Photo} from "../components/photo";
 import {Gallery} from "../components/gallery";
 import { Photo as PhotoType } from "../types/photo";
-import { getBaseUrl } from "../utils/getBaseUrl";
 
 
 async function getPhotos() {

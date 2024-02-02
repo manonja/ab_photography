@@ -1,4 +1,3 @@
-import { getBaseUrl } from "./utils/getBaseUrl";
 import {SlideShow} from "./components/slideShow";
 import { Photo } from "./types/photo";
 
