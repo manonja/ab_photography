@@ -9,8 +9,8 @@ interface Props {
 export const Description: FC<Props> = ({ text, links }) => {
   return (
     <div>
-    <div className="flex flex-col w-full justify-center items-center sm:pt-4 ">
-      <div className="sm:text-lg sm:max-w-[70vh] text-xs text-justify text-gray-300">
+    <div className="flex flex-col w-full text-justify items-center sm:pt-4 ">
+      <div className="sm:text-base sm:max-w-[70vh] text-xs text-justify text-gray-300">
         {text}
       </div>
     </div>
