@@ -36,7 +36,7 @@ export const Navbar = () => {
               href="/about"
               className="text-white p-2 text-xs hover:border-b"
             >
-              About | Contact
+              About
             </Link>
           </ul>
         </div>
