@@ -2,10 +2,10 @@ import {allPosts, Post} from "contentlayer/generated";
 import {FC} from "react";
 import Link from "next/link";
 import {format, parseISO} from "date-fns";
+import MDXRenderer from "../components/MDXRenderer";
 
 
 const PostCard: FC<{post: Post}> = ({post}) => {
-    const previewBody = post.body.raw.split(' ').slice(0, 20).join(' ')
     return (
         <div className="mb-6">
             <time dateTime={post.date} className="block text-sm text-slate-600">
@@ -16,8 +16,7 @@ const PostCard: FC<{post: Post}> = ({post}) => {
                     {post.title}
                 </Link>
                 <div className="text-sm">
-                    {previewBody}
-
+                    {post.description || <MDXRenderer post={post}/>}
                 </div>
             </h2>
         </div>
