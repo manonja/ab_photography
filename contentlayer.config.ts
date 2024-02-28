@@ -4,7 +4,8 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 // Define schema for posts
 export const Post = defineDocumentType(() => ({
     name: 'Post',
-    filePathPattern: `**/*.md`,
+    filePathPattern: `**/*.mdx`,
+    contentType: 'mdx',
     fields: {
         title: {
             type: 'string',
