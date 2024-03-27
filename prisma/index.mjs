@@ -3,131 +3,137 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  const documents = [
+  const photos = [
     // pyrenees project
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-101-3VP2N9l0QygGo8aLrwvyBwSUyyKXqL.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-101-Cyc5GOvxCvr404sa0WI5wOURpwHe41.webp", sequence: 1, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-104-bUTFPj0mpQ6t377dzGadz58Qja85SO.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-104-ekx56brgeqrjjM3TFSic2KUarqtJl1.webp", sequence: 2, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-108-Ju7fX0A5B6AeD7cPNbSB0aGS2Hl06k.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-108-pVl4ezeqJYJfwzIGoInzrcypMZ3iXD.webp", sequence: 3, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-115-DWbPPHes1OtPMryfnd7ylQWQhG4znW.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-115-T4DkehKQyKpxM6dQ6g9MS39JMFRHoq.webp", sequence: 4, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-120-fNc9w4ds1LNzFTHTqxcnNXLlRPq5t5.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-120-FodrzyPL8JWqKwEZeiWQBfKQiWa0nE.webp", sequence: 5, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-20-7H3nSIte6iPw7F8Xgk15uuDerLOPUV.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-20-P75gyeQ657dMHe3uIAk5lXSzeIN8Eu.webp", sequence: 6, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-29-5oByjxUKdNJP8nJkWWwgFrKIUqF2bL.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-29-eQ1SdEYQGDUTii4Js4ljaUbtltFbws.webp", sequence: 7, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-5-4ZsDKyC0F5ByNkpkxPFvQx8XXhuhc4.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-5-T2yXBlMjpxOd4xrUFr6slEQYudDXHl.webp", sequence: 8, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-51-1ek7jg4iBUs9xDnSTEbsrrRMYke1Gq.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-51-GP79WOGypKJKokGRfehEl9gV0qApOM.webp", sequence: 9, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-65-B8CSjsFbmoZFRLV5zPYcDB9w226Ccq.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-65-uYMbsp7Xed9aV8aVPiEra0DcMsjYWz.webp", sequence: 10, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-67-2mdsWjk0E6yVm4SgH1Qp3P8C0LvoA2.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-67-SYwJSiMwavfO4mB3zuNHS1ZplEAaTh.webp", sequence: 11, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-78-lLIbQf8KAecsvcfUSFkx8R7ksICrmn.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-78-5uujFaMLIpW2EhMPlQCG8kaRrz41MH.webp", sequence: 12, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-81-Ab7FKSxUuM0NWyUy1uI3lRFWw1XqQk.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-81-HTPfZnUJFCYpVjRmEGm35ig7uRydlH.webp", sequence: 13, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-86-FcLI7Fi7XEbIl5Mt1o4tdUypqE2pHF.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-86-BQnx3Jl65whtE8LPZvPLAeO1dk3Q1A.webp", sequence: 14, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-87-g5ogYRkYX0hNDtQIHXtqi95e0ncgd1.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-87-ScAqhvEEAzIqhuOuDMx9hZlHW2EXWm.webp", sequence: 15, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/pyr/pyr-CZPkILhJxjl1uHkRfwvXRmCmeeBpNR.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/pyr/pyr-gallery-pyr-1P8gx8xbppgC9L4CUwxe0Hx1SLKZg6.webp", sequence: 16, caption: "", projectId: "65b18488726ffc8ac9412e6b"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 1, caption: "", projectId: "c361c744-48af-485d-86c8-364621413912"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 2, caption: "", projectId: "c361c744-48af-485d-86c8-364621413912"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 3, caption: "", projectId: "c361c744-48af-485d-86c8-364621413912"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 4, caption: "", projectId: "c361c744-48af-485d-86c8-364621413912"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 5, caption: "", projectId: "c361c744-48af-485d-86c8-364621413912"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 6, caption: "", projectId: "c361c744-48af-485d-86c8-364621413912"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 7, caption: "", projectId: "c361c744-48af-485d-86c8-364621413912"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 8, caption: "", projectId: "c361c744-48af-485d-86c8-364621413912"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 9, caption: "", projectId: "c361c744-48af-485d-86c8-364621413912"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 10, caption: "", projectId: "c361c744-48af-485d-86c8-364621413912"},
 
     // 7rad project
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-04%2021.18.51CF002270-wuD67C1ihn8Y9aXAh5d8BljEa5OCqh.webp", mobile_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/mobile/7rad/7rad-2023-11-04%2021.18.51CF002270-mobile-NwcJmuoTstDLR4Xku1WcP14ebeG71U.webp", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-%2021.18.51CF002270-gallery-ms5K5RS50Ka9dymMUR7JbCMlPa1iFc.webp", sequence: 1, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-10%2010.15.21CF002545-YdhpAawAloRoo4mfG6bGHMLgOLgC6U.webp", mobile_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/mobile/7rad/7rad-2023-11-10%2010.15.21CF002545-mobile-jL28UnrSbkbRuomPUoC5UPV1n3d03E.webp", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-10%2010.15.21CF002545-gallery-6UavCbQySGJ3deQVydacs3bClmEQbI.webp", sequence: 2, caption: "", projectId: "65b18489726ffc8ac9412e6d" },
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-11%2015.48.22CF002614-Kk3CYg1kODW14GS7M4hiGmxE5hbKtE.webp", mobile_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/mobile/7rad/7rad-2023-11-11%2015.48.22CF002614-mobile-0BzzkG9AlKwDygLvc90mWPYdIuWPwr.webp", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-11%2015.48.22CF002614-gallery-ZBx4L3C8DbnCluAkHUDDb7bAd5xQJ8.webp", sequence: 3, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-11%2016.21.38CF002634-leRV5HDRFPxeRX8NlGq1g19aHRKGRf.webp", mobile_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/mobile/7rad/7rad-2023-11-11%2016.21.38CF002634-mobile-0bu3C8kVGO1ikZEp7w9qNeDC5gfIjT.webp", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-11%2016.21.38CF002634-gallery-qF9AOeDrPOBdkTHHizyqJgVOUoJFWv.webp", sequence: 4, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-12%2007.51.26CF002735-mDTjtS3O2vbbkYixUrRcEVkN5dIP6q.webp", mobile_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/mobile/7rad/7rad-2023-11-12%2007.51.26CF002735-mobile-GSKCzhFDZ2ETmO38Vhw1VdbIOvGuJB.webp", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-12%2007.51.26CF002735-gallery-MccydtwrFaTWpHSU4NP77aADbZUgZX.webp", sequence: 5, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-16%2006.43.46CF002990-mGUfon9RuRzIERoQTY8GjJqh74EkRs.webp", mobile_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/mobile/7rad/7rad-2023-11-16%2006.43.46CF002990-mobile-Z4mVEheUTyZ0tpiwGz7hVek3HNxJEV.webp", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-16%2006.43.46CF002990-gallery-pm0HIkMYvzkJEFjSCYT7V1wRRw6YCQ.webp", sequence: 6, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-17%2018.13.17CF003143-HN6MwKuORiPVn8oS2tMSsYaVHF897k.webp", mobile_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/mobile/7rad/7rad-2023-11-17%2018.13.17CF003143-mobile-Dosj3jaMVUh45eYfpjbxs2oSCIsPzw.webp", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-17%2018.13.17CF003143-gallery-awqM7A3vrbcCu6vLqDFpZFXC2Hs3zp.webp", sequence: 7, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-18%2009.31.43CF003209-zXUptvKy3VinTVssrZ4inW3ad6LVqc.webp", mobile_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/mobile/7rad/7rad-2023-11-18%2009.31.43CF003209-mobile-E1I5VQE5xNzg35nIDmhTuIJYgeiVDJ.webp", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-18%2009.31.43CF003209-gallery-f0VbTvzjQQT5HMoT6otfBasJqvUaRf.webp", sequence: 8, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-21%2008.27.15CF003253-pvVvBXijmyknaAMF2hIu8f57d9HY1k.webp", mobile_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/mobile/7rad/7rad-2023-11-21%2008.27.15CF003253-mobile-zwfhyJF0xz4ebKX1GDa3oE53wMECNw.webp", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-21%2008.27.15CF003253-gallery-G6MGR7AZIdf5fVR4NGEd20vCbGSFBJ.webp", sequence: 9, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-21%2008.41.27CF003265-KyqpihF7fFwM10eXAZFtsZnFd1dXGN.webp", mobile_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/mobile/7rad/7rad-2023-11-21%2008.41.27CF003265-mobile-RNbWMsavbcxz4IuQmrCgscpkpW1DOY.webp", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-21%2008.41.27CF003265-gallery-H6EqvJTnegYATwZC1tIntzegSQpHIG.webp", sequence: 10, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-22%2013.37.44CF003287-kZQMShuC5q6hio5s6DsX2BKgJkVCrV.webp", mobile_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/mobile/7rad/7rad-2023-11-22%2013.37.44CF003287-mobile-YN1WvHedjygMAUcyW5yGfBW1LGhQ9u.webp", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-22%2013.37.44CF003287-gallery-Tuv1XWh9YAH31d6OKBSoCESxbwn8vJ.webp", sequence: 11, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-25%2006.02.13CF003371-fRnS9u3uggHj3enPCHIOzKs9U3EpMv.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-25%2006.02.13CF003371-gallery-NXNlLPrtCGobpRQtBuiwon6GWuMWAT.webp", sequence: 12, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-25%2014.34.44CF003428-GFAuFEBbuvrQ5lLSuPtfsBfgAEJFr1.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-25%2014.34.44CF003428-gallery-pOpve20OeFegnoyES47fBnk5V6ux7G.webp", sequence: 13, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-25%2017.44.50CF003467-Wr8ELoPK6WnB808OXc5xwW8gD6IrrB.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-25%2017.44.50CF003467-gallery-XSGiwgStFhThQ6PC8jHRpoIsvitN49.webp", sequence: 14, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-26%2015.50.09CF003475-Mdb3Y8z1QqZoGqBNeBHsyQ7ctywOMp.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-26%2015.50.09CF003475-gallery-m7PMuXU7CcMsYuQvqirgB2zZa5JMTF.webp", sequence: 15, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-29%2016.33.01CF003544-qCbTd0soZfchKEpdxmv8IDTG4XRNri.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-29%2016.28.51CF003533-gallery-mettwgod81hFHyNW7Vy8Ac4w5g6VTK.webp", sequence: 16, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-11-30%2016.50.59CF003574-IhPeaEibXQ570H7vCPCEGU69WjZqSX.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-29%2016.33.01CF003544-gallery-Rk5qUVpK1qVWOoFJXRrV1ZYfsNf6aV.webp", sequence: 17, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-01%2005.18.57CF003582-DLhw6V9yV8Z0tRDO55GCobGjWE24ko.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-11-30%2016.50.59CF003574-gallery-2Z83cRYCZHlbeJPunUQjFkmr45RI2C.webp", sequence: 18, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-01%2005.24.17CF003585-8D4uKztKc5om9z5DQP8E4LjmsoQgCM.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-01%2005.18.57CF003582-gallery-e2R7nmn3EsucScG4XJc89cwOYplLQq.webp", sequence: 19, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-01%2005.56.12CF003592-bBqtBOaJzAeb2xC7dbTdbX3Fb63b3f.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-01%2005.24.17CF003585-gallery-6KKXPz0NV5oJw1aVYSzqiXrqaPwcTj.webp", sequence: 20, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-01%2006.29.34CF003626-tWdjpiqGsEDslj89u87A4hizzIS1n8.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-01%2005.56.12CF003592-gallery-9tCzbiO7XJWvaFKbCE0LcQdX99nCgR.webp", sequence: 21, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-02%2005.48.26CF003664-wDMNj7JbXEkXEySrYiV3MBxklsZqts.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-01%2006.29.34CF003626-gallery-izwDsQ0yHNDDQ4V3T5eyC3y9d28JkW.webp", sequence: 22, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-03%2006.41.47CF003877-npN5abGlq7iFtVCIV9H6a68PAayRA3.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-02%2005.48.26CF003664-gallery-p5xozqEH2OFlvbCCmfrkpKOn8Dcuba.webp", sequence: 23, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-03%2010.44.39CF003900-gaNh5S6AOxsOCaV5Alh7g2Dtww8otv.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-03%2006.41.47CF003877-gallery-HdHtlBRhKLWfI1AOh5t3302yCvDrE1.webp", sequence: 24, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-03%2012.42.49CF003916-Bt9g8c4BKbj9rYMji4p3YbKSlCqJdT.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-03%2010.44.39CF003900-gallery-amQ4rVBSPKKRbgWYsuiyrDuAcM6mG1.webp", sequence: 25, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-03%2013.26.37CF003931-gxJzDiEsOdo39wrPbguaCq8qChiRD4.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-03%2012.42.49CF003916-gallery-7fFPfu2T715yNEdBx07wsgeFYTCSqs.webp", sequence: 26, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-03%2013.37.37CF003936-uA0AJhooC5B8D8wIrKzWL9DrqHjhUk.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-03%2013.26.37CF003931-gallery-XSkfkjC1rNwgoX6EOEwRmJZfp0vbqB.webp", sequence: 27, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-03%2013.38.28CF003937-vkaRdznPOHl3N4v9MVDKzBNERkfCxH.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-03%2013.37.37CF003936-gallery-qMFWVjcvDPf6my9lLbpZ3ezK24fFxK.webp", sequence: 28, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-03%2014.47.43CF003968-OqXjC28SBtWWcUFEPwUjGMwXhm96Aw.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-03%2013.38.28CF003937-gallery-2UKcnMsipZOeGYD4uQ1BObxbt4BXCo.webp", sequence: 29, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-05%2006.47.03CF004005-jINWuJcQrMg2okHuyZO3VK7M7KJLnE.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-03%2014.47.43CF003968-gallery-DxcOzSIFCGWXt4RIfvidygrFwCREx7.webp", sequence: 30, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-08%2005.59.33CF004075-4Fb6iHBOdk53MtrMKcyW5Nfaw8AS4z.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-05%2006.47.03CF004005-gallery-rOZ3qN7l1LULFT8xBV53APrxfULltC.webp", sequence: 31, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-08%2006.01.39CF004077-YjssqUqOw54h2bg13wwA52l0bQtXv1.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-08%2006.01.39CF004077-gallery-G4MwF9Hu10QxkDG5zaT3y74sp8Bj0P.webp", sequence: 32, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-09%2005.27.10CF004119-vdDycXgmSSAz19m7SBcExvGj1PoxUJ.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-09%2005.27.10CF004119-gallery-2TMgx3RH6UVBeRYbidFTqVcoihcu1Q.webp", sequence: 33, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-09%2015.10.35CF004313-KnUxsDvyliOwR39qoztOKN3vAkNAOd.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-09%2015.10.35CF004313-gallery-RlpVkUFQs29tL4vMVVu0SoApWzT1dz.webp", sequence: 34, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-10%2012.49.09CF004329-afTMShgnxZ4S7wHB2mWKdyjZSZx90w.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-10%2012.49.09CF004329-gallery-jongBHZldYdHF6fGyLitsm0Z9i6eQj.webp", sequence: 35, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-10%2014.44.48CF004357-j7mYk4eZbm5yCp0Lcsa1xqNMMg4l2J.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-10%2014.44.48CF004357-gallery-I3bBHJfvJFQ2H9xjTsilwYuRs9MjQm.webp", sequence: 36, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-10%2015.12.32CF004386-u8xFA7cHQm1gAn7MwHjlt21c9rWOkw.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-10%2015.12.32CF004386-gallery-u6i5nryxST4MhwZRzdR3D9lpVjVwcT.webp", sequence: 37, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-10%2015.27.40CF004396-qQFQ47vDVwVGEvsNeNdSd78S1anGoV.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-10%2015.27.40CF004396-gallery-Xip59Qn4VcKB2xZ59xisRCoGVLyf3H.webp", sequence: 38, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-11%2019.05.05CF004417-YmtTUAyXFPvVeWdW5keaDYCOyMCCm0.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-11%2019.05.05CF004417-gallery-M35HMtfuJowscFeoQJivzl8vY7pZsd.webp", sequence: 39, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-15%2020.13.02CF004540-J2Njf3LUKlOK54WQ90MFXaSziPz5AU.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-15%2020.13.02CF004540-gallery-n6DlVBsRP0jEZy9lMuLPESCJvRugsw.webp", sequence: 40, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-15%2020.57.15CF004553-2aIgVijuAJOu2a53CrL8f30hoVT1Qd.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-15%2020.57.15CF004553-gallery-wOR57RhTsMrspHWDmiLmhakOSH0c1c.webp", sequence: 41, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-15%2021.37.03CF004570-1ZPsfwNzQmzj2Ei2xNgzwJgIRwINdv.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-15%2021.37.03CF004570-gallery-IfVbWHPwO9hHNlryaE3iuoXQfZtg0t.webp", sequence: 42, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/7rad/7rad-2023-12-16%2010.58.41CF004631-s6VqbVWO5AkxYN5m6F2hpCkBtfpb72.webp", mobile_blob: "", gallery_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/gallery/7rad/7rad-gallery-2023-12-16%2010.58.41CF004631-gallery-j96O5iNeq8KwOT8DMj6YSVWXuEKqM7.webp", sequence: 43, caption: "", projectId: "65b18489726ffc8ac9412e6d"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 1, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 2, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5" },
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 3, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 4, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 5, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 6, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 7, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 8, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 9, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 10, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 11, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 12, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 13, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 14, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 15, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
+    // { desktop_blob: "", mobile_blob: "", gallery_blob: "", sequence: 16, caption: "", projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5"},
 
-
-    // // homepage
-    // { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/homepage/slide-0-00p93uitrbrXRq5pqLtD5mOfLQKPk7.webp", mobile_blob: "", gallery_blob: "", sequence: 2, caption: ""},
-    { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/homepage/slide-1-7qz64INx7LTFOO4vom9iBfCtYrr2FR.webp", mobile_blob: "", gallery_blob: "", sequence: 2, caption: "", projectId: "65bb699df4b455bc5b5f08d4"},
-    { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/homepage/slide-2-O9fqCTcfko8oBQWPfgf7tvqSaAHCve.webp", mobile_blob: "", gallery_blob: "", sequence: 3, caption: "", projectId: "65bb699df4b455bc5b5f08d4"},
-    { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/homepage/slide-3-YgNjXxzSUT4gPNpVwkQu31A21vUMDS.webp", mobile_blob: "", gallery_blob: "", sequence: 4, caption: "", projectId: "65bb699df4b455bc5b5f08d4"},
-    { desktop_blob: "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/homepage/slide-4-cmIvJCO8AnL15Bb5Ck5NpZP3ekgT2U.webp", mobile_blob: "", gallery_blob: "", sequence: 5, caption: "", projectId: "65bb699df4b455bc5b5f08d4"},
+    // // homepage: 2, caption: ""},
+    { desktop_blob: "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-0.webp?alt=media&token=88428d6b-2dbe-4472-bb2e-4030dc076fc2", mobile_blob: "", gallery_blob: "", sequence: 2, caption: "", projectId: "4b077516-709a-4507-96b1-da5e7b3b044c"},
+    { desktop_blob: "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-2.webp?alt=media&token=b06f03d8-93c2-4222-836e-b15d2f872e4f", mobile_blob: "", gallery_blob: "", sequence: 3, caption: "", projectId: "4b077516-709a-4507-96b1-da5e7b3b044c"},
+    { desktop_blob: "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-3.webp?alt=media&token=ebcb75b8-0652-49ac-b657-4f01613fe071", mobile_blob: "", gallery_blob: "", sequence: 4, caption: "", projectId: "4b077516-709a-4507-96b1-da5e7b3b044c"},
+    { desktop_blob: "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-4.webp?alt=media&token=b53b394c-3266-4dbf-8141-be71d91fe4f2", mobile_blob: "", gallery_blob: "", sequence: 5, caption: "", projectId: "4b077516-709a-4507-96b1-da5e7b3b044c"},
  
   ];
   await prisma.$connect();
 
-  // await prisma.project.create({
+  // await prisma.photo.create({
   //   data: {
-  //     title: "Homepage",
-  //     isPublished: true,
-  //     photos: {
-  //       create: {
+  //
   //         desktop_blob:
-  //           "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/fullscreen/homepage/slide-0-00p93uitrbrXRq5pqLtD5mOfLQKPk7.webp",
+  //           "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-0.webp?alt=media&token=88428d6b-2dbe-4472-bb2e-4030dc076fc2",
   //         mobile_blob:
   //           "",
   //         gallery_blob:
   //           "",
-  //         sequence: 1,
+  //         sequence: 2,
   //         caption: "",
+  //         projectId: "2a4d508b-26c9-40f9-b8aa-8b69bf00d585"
   //       },
-  //     },
-  //   },
+  //
   // });
 
+  const projects = [
+      {
+          title: "Homepage",
+          isPublished: true,
+          photos: {
+              create: {
+                  desktop_blob:
+                      "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-3.webp?alt=media&token=ebcb75b8-0652-49ac-b657-4f01613fe071",
+                  mobile_blob:
+                      "",
+                  gallery_blob:
+                      "",
+                  sequence: 1,
+                  caption: "",
+              },
+          },
+      },
+      {
+          title: "7 Rad",
+          isPublished: true,
+          photos: {
+              create: {
+                  desktop_blob:
+                      "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Ffullscreen%2F7rad-2023-12-01%2005.24.17CF003585.webp?alt=media&token=63bef986-7344-4446-959f-5062c6509a5d",
+                  mobile_blob:
+                      "",
+                  gallery_blob:
+                      "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-2023-12-01%2005.24.17CF003585-gallery.webp?alt=media&token=6d1919ef-a2d9-4946-9a9e-c7fc72cf6d58",
+                  sequence: 1,
+                  caption: "",
+              },
+          },
+      },
+      {
+          title: "Pyrénées",
+          isPublished: true,
+          photos: {
+              create: {
+                  desktop_blob:
+                      "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/pyrenees%2Ffullscreen%2Fpyr-101.webp?alt=media&token=6dc2e877-c8cf-4690-947f-87395a4f01c3",
+                  mobile_blob:
+                      "",
+                  gallery_blob:
+                      "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/pyrenees%2Fgallery%2Fpyr-gallery-pyr-101.webp?alt=media&token=8544676b-e324-431f-9a33-482289d010fb",
+                  sequence: 1,
+                  caption: "",
+              },
+          },
+      }
+  ]
 
+    // Create multiple photos at once
+    await Promise.all(photos.map(async (photo) => {
+        await prisma.photo.create({data: photo})
+    }))
 
-//   await prisma.project.create({
-//     data: {
-//       title: "7 Rad",
-//       isPublished: true,
-//       photos: {
-//         create: {
-//           desktop_blob:
-//             "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/7rad-2023-11-04%2021.18.51CF002270-RpS8OI4reBMj6qxc4cebpEb4YMvQSO.webp",
-//           mobile_blob:
-//             "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/mobile/7rad-2023-11-04%2021.18.51CF002270-mobile-riSivGbVj6SGxUUpiNOumASRZ8A2E7.webp",
-//           gallery_blob:
-//             "https://dse0fs1ooxwlfxjh.public.blob.vercel-storage.com/7rad-gallery-%2021.18.51CF002270-gallery-052lFj14NwZzSjaCz5bXzbAP5NW7ME.webp",
-//           sequence: 1,
-//           caption: "",
-//         },
-//       },
-//     },
-//   });
-
-  await prisma.photo.createMany({
-    data: documents,
-  });
+    // Create multiple projects at once
+    // await Promise.all(projects.map(async (project) => {
+    //     await prisma.project.create({data: project})
+    // }))
 
   const allProjects = await prisma.project.findMany({
     include: {
       photos: true,
     },
   });
-  console.dir(allProjects, { depth: null });
+  // console.dir(allProjects, { depth: null });
+
+    // const allPhotos = await prisma.photo.findMany({
+    //     where: {
+    //         projectId: "2a4d508b-26c9-40f9-b8aa-8b69bf00d585",
+    //     },
+    // });
+    // console.dir(allPhotos, { depth: null });
+
 }
 
 main()

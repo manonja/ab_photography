@@ -2,10 +2,11 @@
 const nextConfig = {
     images: {
       minimumCacheTTL: 31536000,
+        domains: ["ab-photography-5af63.appspot.com"],
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'dse0fs1ooxwlfxjh.public.blob.vercel-storage.com',
+          hostname: 'ab-photography-5af63.appspot.com',
           port: '',
         },
       ],

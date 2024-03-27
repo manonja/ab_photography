@@ -11,6 +11,7 @@ async function getPhotos() {
 
 export default async function Home() {
   const photos = await getPhotos();
+  console.log(photos)
 
   const slidesImages = photos.map((photo: Photo) => photo.desktop_blob);
 
