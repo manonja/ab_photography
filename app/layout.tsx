@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PlausibleProvider from 'next-plausible'
+import PlausibleProvider from "next-plausible";
 
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Anton Bossenbroek",
   description: "Anton Bossenbroek - Photography",
   icons: {
-    icon: '/logo-ab.jpeg',
+    icon: "/logo-ab.jpeg",
   },
 };
 
@@ -23,16 +23,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-    <head>
-    <PlausibleProvider domain="bossenbroek.photo" />
-    </head>
+      <head>
+        <PlausibleProvider domain="bossenbroek.photo" />
+      </head>
       <body className={inter.className}>
         <Navbar />
-        <div className="sm:container py-28 px-10 sm:py-0 ">
+        <div className="sm:container sm:max-w-screen-xl py-28 px-10 sm:py-0 ">
           <main className="flex overflow-auto h-[calc(100vh-94px)] flex-col items-center z-10">
-            <div className='flex-auto w-full p-0 '>
-              {children}
-            </div>
+            <div className="flex-auto w-full p-0 ">{children}</div>
           </main>
         </div>
         <Footer />

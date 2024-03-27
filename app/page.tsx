@@ -1,5 +1,5 @@
-import {SlideShow} from "./components/slideShow";
-import {Photo} from "./types/photo";
+import { SlideShow } from "./components/slideShow";
+import { Photo } from "./types/photo";
 
 async function getPhotos() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api`, {
