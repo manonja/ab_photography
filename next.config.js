@@ -1,29 +1,27 @@
-const { withContentlayer } = require("next-contentlayer")
+const { withContentlayer } = require("next-contentlayer");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-      minimumCacheTTL: 31536000,
-        domains: ["ab-photography-5af63.appspot.com"],
-      remotePatterns: [
-        {
-          protocol: 'https',
-          hostname: 'ab-photography-5af63.appspot.com',
-          port: '',
-        },
-      ],
-    },
-    typescript: {
-        // !! WARN !!
-        // To remove once mailchimp subscription fixed
-        // !! WARN !!
-        ignoreBuildErrors: true,
-    },
-}
+  images: {
+    minimumCacheTTL: 31536000,
+    domains: ["ab-photography-5af63.appspot.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        port: "",
+      },
+    ],
+  },
+  typescript: {
+    // !! WARN !!
+    // To remove once mailchimp subscription fixed
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
+};
 
-module.exports = withContentlayer(nextConfig)
-
-
+module.exports = withContentlayer(nextConfig);
 
 // Injected content via Sentry wizard below
 
@@ -63,6 +61,5 @@ module.exports = withSentryConfig(
     // See the following for more information:
     // https://docs.sentry.io/product/crons/
     // https://vercel.com/docs/cron-jobs
-    automaticVercelMonitors: true,
   }
 );
