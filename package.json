@@ -6,12 +6,16 @@
     "migrate:dev": "npx dotenv -e .env.local -- prisma migrate dev",
     "db:push": "npx dotenv -e .env.local -- prisma db push",
     "migrate:reset": "npx dotenv -e .env.local -- prisma migrate reset",
-    "db:seed": "npx dotenv -e .env.local -- prisma db seed",
+    "db:seed:dev": "npx dotenv -e .env.local -- prisma db seed",
+    "db:seed:prod": "npx dotenv -e .env -- prisma db seed",
     "prisma:generate": "npx dotenv -e .env.local -- prisma generate",
     "prisma:studio": "npx dotenv -e .env.local -- prisma studio",
     "dev": "npx dotenv -e .env.local next dev",
-    "build": "npx prisma migrate deploy && npx prisma generate && next build ",
+    "build": "npx prisma migrate deploy && npx prisma generate && next build",
     "start": "next start"
+  },
+  "prisma": {
+    "seed": "npx dotenv -e .env -- ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.8.1",
@@ -34,7 +38,7 @@
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@types/node": "^20",
+    "@types/node": "^20.11.30",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-mailchimp-subscribe": "^2.1.4",
@@ -46,6 +50,7 @@
     "prettier-plugin-prisma": "4.4.0",
     "prisma": "^5.8.1",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
   }
 }

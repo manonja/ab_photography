@@ -111,20 +111,20 @@ async function main() {
   ]
 
     // Create multiple photos at once
-    await Promise.all(photos.map(async (photo) => {
-        await prisma.photo.create({data: photo})
-    }))
-
-    // Create multiple projects at once
-    // await Promise.all(projects.map(async (project) => {
-    //     await prisma.project.create({data: project})
+    // await Promise.all(photos.map(async (photo) => {
+    //     await prisma.photo.create({data: photo})
     // }))
 
-  const allProjects = await prisma.project.findMany({
-    include: {
-      photos: true,
-    },
-  });
+    // Create multiple projects at once
+    await Promise.all(projects.map(async (project) => {
+        await prisma.project.create({data: project})
+    }))
+
+  // const allProjects = await prisma.project.findMany({
+  //   include: {
+  //     photos: true,
+  //   },
+  // });
   // console.dir(allProjects, { depth: null });
 
     // const allPhotos = await prisma.photo.findMany({
