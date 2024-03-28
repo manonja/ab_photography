@@ -1,10 +1,9 @@
 import { PrismaClient } from "@prisma/client";
-import { getProjectId } from "../app/utils/getProjectId";
 const prisma = new PrismaClient();
 
-const pyreneesProjectId = getProjectId("Pyrénées");
-const sevenRadProjectId = getProjectId("7 Rad");
-const homepageProjectId = getProjectId("Homepage");
+const pyreneesProjectId = "913aa589-5218-4f16-9582-43c80f562301";
+const sevenRadProjectId = "db65ea98-7cf3-43d8-904b-2b4ef93d77e1";
+const homepageProjectId = "85e39fbb-96ce-46ff-a510-f9c469dfcfc6";
 
 async function main() {
   const photos = [
@@ -18,7 +17,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/pyrenees%2Fgallery%2Fpyr-gallery-pyr-20.webp?alt=media&token=df405397-056b-41da-ab48-44dd45539886",
       sequence: 2,
       caption: "",
-      projectId: "c361c744-48af-485d-86c8-364621413912",
+      projectId: pyreneesProjectId,
     },
     {
       desktop_blob:
@@ -28,7 +27,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/pyrenees%2Fgallery%2Fpyr-gallery-pyr-29.webp?alt=media&token=0adb3999-790f-4633-a386-6fafe7726a73",
       sequence: 3,
       caption: "",
-      projectId: "c361c744-48af-485d-86c8-364621413912",
+      projectId: pyreneesProjectId,
     },
     {
       desktop_blob:
@@ -38,7 +37,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/pyrenees%2Fgallery%2Fpyr-gallery-pyr-36.webp?alt=media&token=6f31d035-31a0-465d-baab-401c364470cb",
       sequence: 4,
       caption: "",
-      projectId: "c361c744-48af-485d-86c8-364621413912",
+      projectId: pyreneesProjectId,
     },
     {
       desktop_blob:
@@ -48,7 +47,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/pyrenees%2Fgallery%2Fpyr-gallery-pyr-5.webp?alt=media&token=c780670f-e2f2-4d57-9709-2e284c6d46b0",
       sequence: 5,
       caption: "",
-      projectId: "c361c744-48af-485d-86c8-364621413912",
+      projectId: pyreneesProjectId,
     },
     {
       desktop_blob:
@@ -58,7 +57,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/pyrenees%2Fgallery%2Fpyr-gallery-pyr-51.webp?alt=media&token=d86d50e6-919d-4964-97b3-bf5d42ab961c",
       sequence: 6,
       caption: "",
-      projectId: "c361c744-48af-485d-86c8-364621413912",
+      projectId: pyreneesProjectId,
     },
     {
       desktop_blob:
@@ -68,7 +67,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/pyrenees%2Fgallery%2Fpyr-gallery-pyr-67.webp?alt=media&token=ba7512e8-ce60-4b94-b0fe-ecef3b754304",
       sequence: 7,
       caption: "",
-      projectId: "c361c744-48af-485d-86c8-364621413912",
+      projectId: pyreneesProjectId,
     },
     {
       desktop_blob:
@@ -78,7 +77,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/pyrenees%2Fgallery%2Fpyr-gallery-pyr-78.webp?alt=media&token=fef9ccee-6a58-4d64-aadb-da9be50c3dc1",
       sequence: 8,
       caption: "",
-      projectId: "c361c744-48af-485d-86c8-364621413912",
+      projectId: pyreneesProjectId,
     },
     {
       desktop_blob:
@@ -88,7 +87,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/pyrenees%2Fgallery%2Fpyr-gallery-pyr-81.webp?alt=media&token=a3d5fc7b-84e2-4446-af5d-fbc30f35bda5",
       sequence: 9,
       caption: "",
-      projectId: "c361c744-48af-485d-86c8-364621413912",
+      projectId: pyreneesProjectId,
     },
     {
       desktop_blob:
@@ -98,7 +97,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/pyrenees%2Fgallery%2Fpyr-gallery-pyr-92.webp?alt=media&token=74004869-adaf-422b-9751-9672ca3fdb76",
       sequence: 10,
       caption: "",
-      projectId: "c361c744-48af-485d-86c8-364621413912",
+      projectId: pyreneesProjectId,
     },
 
     // 7rad project
@@ -111,7 +110,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-%2021.18.51CF002270-gallery.webp?alt=media&token=708c6f2f-7e95-4eda-aff8-71cd313376ab",
       sequence: 2,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob:
@@ -121,7 +120,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-2023-11-16%2006.43.46CF002990-gallery.webp?alt=media&token=616e89a8-05be-44c7-9248-3f1c51fa91ca",
       sequence: 3,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob:
@@ -131,7 +130,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-2023-11-17%2018.13.17CF003143-gallery.webp?alt=media&token=ad241230-7b13-44fa-a7ab-9e893df77356",
       sequence: 4,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob:
@@ -141,7 +140,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-2023-11-18%2009.31.43CF003209-gallery.webp?alt=media&token=5ad3ce9c-66b9-4ca0-b186-2b206d94ae47",
       sequence: 5,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob:
@@ -151,7 +150,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-2023-11-21%2008.27.15CF003253-gallery.webp?alt=media&token=b11fe7af-f376-4974-b904-14b91019ffc1",
       sequence: 6,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob:
@@ -161,7 +160,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-2023-11-25%2006.02.13CF003371-gallery.webp?alt=media&token=620bf9aa-f31d-4ba8-b57a-e9835b764ea3",
       sequence: 7,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob:
@@ -171,7 +170,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-2023-12-02%2005.48.26CF003664-gallery.webp?alt=media&token=a2d898e4-4cde-4468-aecf-5b4f615c2bb6",
       sequence: 8,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob:
@@ -181,7 +180,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-2023-12-03%2013.26.37CF003931-gallery.webp?alt=media&token=935b303f-d750-47ce-9e74-1d121c6e4a55",
       sequence: 9,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob:
@@ -191,7 +190,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-2023-12-05%2006.47.03CF004005-gallery.webp?alt=media&token=d1ad766b-0c95-4732-b8fc-d61f553c35b0",
       sequence: 10,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob:
@@ -201,7 +200,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-2023-12-08%2006.01.39CF004077-gallery.webp?alt=media&token=c0952305-adad-4d9b-baa0-070965bde284",
       sequence: 11,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob:
@@ -211,7 +210,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-2023-12-09%2005.27.10CF004119-gallery.webp?alt=media&token=b76f41ac-df59-4c46-86ba-10d17e9bbd04",
       sequence: 12,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob:
@@ -221,7 +220,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-2023-12-10%2014.44.48CF004357-gallery.webp?alt=media&token=e1cd6856-df68-4d63-b77f-fcf6697776ef",
       sequence: 13,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob:
@@ -231,7 +230,7 @@ async function main() {
         "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/7rad%2Fgallery%2F7rad-gallery-2023-12-11%2019.05.05CF004417-gallery.webp?alt=media&token=7b39c54d-4299-41ad-9dfb-2874d7f81b5e",
       sequence: 14,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob: "",
@@ -239,7 +238,7 @@ async function main() {
       gallery_blob: "",
       sequence: 15,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
     {
       desktop_blob: "",
@@ -247,14 +246,46 @@ async function main() {
       gallery_blob: "",
       sequence: 16,
       caption: "",
-      projectId: "bb881148-eb1a-4250-ba85-80b4f7a2d3d5",
+      projectId: sevenRadProjectId,
     },
 
     // // homepage: 2, caption: ""},
-    // { desktop_blob: "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-0.webp?alt=media&token=88428d6b-2dbe-4472-bb2e-4030dc076fc2", mobile_blob: "", gallery_blob: "", sequence: 2, caption: "", projectId: "4b077516-709a-4507-96b1-da5e7b3b044c"},
-    // { desktop_blob: "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-2.webp?alt=media&token=b06f03d8-93c2-4222-836e-b15d2f872e4f", mobile_blob: "", gallery_blob: "", sequence: 3, caption: "", projectId: "4b077516-709a-4507-96b1-da5e7b3b044c"},
-    // { desktop_blob: "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-3.webp?alt=media&token=ebcb75b8-0652-49ac-b657-4f01613fe071", mobile_blob: "", gallery_blob: "", sequence: 4, caption: "", projectId: "4b077516-709a-4507-96b1-da5e7b3b044c"},
-    // { desktop_blob: "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-4.webp?alt=media&token=b53b394c-3266-4dbf-8141-be71d91fe4f2", mobile_blob: "", gallery_blob: "", sequence: 5, caption: "", projectId: "4b077516-709a-4507-96b1-da5e7b3b044c"},
+    {
+      desktop_blob:
+        "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-0.webp?alt=media&token=88428d6b-2dbe-4472-bb2e-4030dc076fc2",
+      mobile_blob: "",
+      gallery_blob: "",
+      sequence: 2,
+      caption: "",
+      projectId: homepageProjectId,
+    },
+    {
+      desktop_blob:
+        "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-2.webp?alt=media&token=b06f03d8-93c2-4222-836e-b15d2f872e4f",
+      mobile_blob: "",
+      gallery_blob: "",
+      sequence: 3,
+      caption: "",
+      projectId: homepageProjectId,
+    },
+    {
+      desktop_blob:
+        "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-3.webp?alt=media&token=ebcb75b8-0652-49ac-b657-4f01613fe071",
+      mobile_blob: "",
+      gallery_blob: "",
+      sequence: 4,
+      caption: "",
+      projectId: homepageProjectId,
+    },
+    {
+      desktop_blob:
+        "https://firebasestorage.googleapis.com/v0/b/ab-photography-5af63.appspot.com/o/landing%2Ffullscreen%2Fslide-4.webp?alt=media&token=b53b394c-3266-4dbf-8141-be71d91fe4f2",
+      mobile_blob: "",
+      gallery_blob: "",
+      sequence: 5,
+      caption: "",
+      projectId: homepageProjectId,
+    },
   ];
   await prisma.$connect();
 
