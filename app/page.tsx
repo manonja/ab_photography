@@ -10,10 +10,10 @@ async function getPhotos() {
 }
 
 export default async function Home() {
-  // const photos = await getPhotos();
-  //
-  // const slidesImages = photos.map((photo: Photo) => photo.desktop_blob);
+  const photos = await getPhotos();
 
-  // return <SlideShow images={slidesImages} />;
-  return <div>hello </div>;
+  const slidesImages = photos.map((photo: Photo) => photo.desktop_blob);
+
+  return <SlideShow images={slidesImages} />;
+  // return <div>hello </div>;
 }
