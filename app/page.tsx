@@ -15,5 +15,4 @@ export default async function Home() {
   const slidesImages = photos.map((photo: Photo) => photo.desktop_blob);
 
   return <SlideShow images={slidesImages} />;
-  // return <div>hello </div>;
 }

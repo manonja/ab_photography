@@ -12,7 +12,7 @@ async function getPhotos() {
 export async function Pyrenees() {
   const photos = await getPhotos();
 
-  const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[5];
+  const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[0];
 
   return (
     <>
