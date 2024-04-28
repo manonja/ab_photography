@@ -2,6 +2,8 @@ import { Gallery } from "../components/gallery";
 import { Photo as PhotoType } from "../types/photo";
 import { Photo } from "../components/photo";
 
+export const runtime = "edge";
+
 async function getPhotos() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/pyrenees`, {
     method: "GET",

@@ -1,8 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
@@ -18,7 +16,7 @@ model Project {
   isPublished Boolean @default(false)
   photos      Photo[]
 
-  @@map("projects") // Optional: explicitly map the table name (useful if you want specific naming conventions)
+  @@map("projects")
 }
 
 model Photo {
@@ -32,5 +30,5 @@ model Photo {
   project      Project @relation(fields: [projectId], references: [id])
 
   @@index([projectId, sequence])
-  @@map("photos") // Optional: explicitly map the table name
+  @@map("photos")
 }
