@@ -22,7 +22,7 @@ export async function GET() {
     },
   });
 
-  console.log(photos)
+  console.log("PHOTOS API:", photos)
 
   return NextResponse.json(photos);
 }
