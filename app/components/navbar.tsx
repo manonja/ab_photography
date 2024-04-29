@@ -12,29 +12,29 @@ export const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <nav className="fixed top-0 z-20 bg-neutral-900 w-full sm:h-24 h-16 shadow-xl">
+    <nav className="fixed top-0 z-20 bg-neutral-900 w-full h-16">
       <div className="flex items-center justify-between h-full w-full px-4 2xl:px-16 ">
-        <Link href="/" className="text-white">
+        <Link href="/" className="text-white text-md">
           Anton Bossenbroek
         </Link>
         <div className="hidden sm:flex">
           <ul className="hidden sm:flex">
             <Link
               href="/7rad"
-              className="text-white p-2 text-xs hover:border-b"
+              className="text-white p-2 text-sm hover:border-b"
               onClick={() => plausible('7RadClicked')}
             >
               7Rad
             </Link>
             <Link
                 href="/pyrenees"
-                className="text-white p-2 text-xs hover:border-b"
+                className="text-white p-2 text-sm hover:border-b"
             >
               Pyrénées
             </Link>
             <Link
               href="/about"
-              className="text-white p-2 text-xs hover:border-b"
+              className="text-white p-2 text-sm hover:border-b"
             >
               About
             </Link>

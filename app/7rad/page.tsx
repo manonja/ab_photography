@@ -2,22 +2,11 @@ import { Description } from "../components/description";
 import { Gallery } from "../components/gallery";
 import { Photo as PhotoType } from "../types/photo";
 import { Photo } from "../components/photo";
+import {fetchPhotos} from "../lib/fetchPhotos";
 
 export const runtime = "edge";
 
-async function getPhotos() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/7rad`, {
-    method: "GET",
-  });
-
-  return await res.json();
-}
-
 export default async function SevenRad() {
-  // const photos = await getPhotos();
-
-  // const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[0];
-
   const text1 =
     "With 7 Radiance (RAD), the Netherlands is the OECD country with the highest average artificial light pollution. Rad, or radiance, is the unit of measurement for light pollution measured by satellite. I visited all 13 regions with the highest light pollution, all agriculture or industrial sites. My photos document the systemic and systematic eradication of the night that 7 rad expresses scientifically. Through my photos, I challenge viewers to consider their consumption patterns and complacent approvals. After all, as the world population increases, with its high population density, the Netherlands may be the world's canary in the coal mine.";
   const text2 =
@@ -38,21 +27,29 @@ export default async function SevenRad() {
     "In the Netherlands, municipalities regulate the opening and closing of greenhouses according to the Environment and Planning Act. Virtually all roses and other cut flowers and vegetable greenhouses have requested exemptions to open the light shading for longer, allowing growers to reduce the risk of mould growing on plants but also causing more light pollution. For my project, I requested exceptions from 2016 until now through the Dutch Open Government Act for the areas I photographed. I seek to publish these after extracting the essence with artificial intelligence. I aim to use the extracts in captions and as material next to my photographs that I want to hang in the various areas I photographed, building on Zoe Strauss, I-95 (2001). In addition, I aim to develop a science pack based on the software that I developed that aims at high school students and would allow them to analyse the light pollution in the area where they live.";
   const text10 =
     "Through these outreach efforts, I want to democratise my work outside the galleries and engage Dutch citizens and global consumers of flowers, steel and oil products. I hope to shed a different light on greenhouses than David Attenborough did in his documentary A Life on our Planet (2022), where he frames greenhouses in a relatively positive light as do the photographers Kadir van Lohuizen, Greenhouse II (2022) and Luca Locatelli, Future of Farming (2020). Even though greenhouses can offer more efficient farming and human expansion may require these methods, we should not ignore the impact on the darkness of the night.";
-  return (
-    <>
-      {/*<Photo photo={landingImage} priority />*/}
-      <Description text={text1} />
-      <Description text={text2} />
-      <Description text={text3} />
-      <Description text={text4} />
-      <Description text={text5} />
-      <Description text={text6} />
-      <Description text={text7} />
-      <Description text={text8} />
-      <Description text={text9} />
-      <Description text={text10} links />
 
-      {/*<Gallery images={photos} />*/}
-    </>
-  );
+  try {
+      const photos = await fetchPhotos(`${process.env.NEXT_PUBLIC_SITE_URL}/api/7rad`)
+      const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[0];
+      return (
+          <>
+              <Photo photo={landingImage} priority />
+              {/*<Gallery images={photos} />*/}
+              <Description text={text1} />
+              <Description text={text2} />
+              <Description text={text3} />
+              <Description text={text4} />
+              <Description text={text5} />
+              <Description text={text6} />
+              <Description text={text7} />
+              <Description text={text8} />
+              <Description text={text9} />
+              <Description text={text10} links />
+
+          </>
+      );
+
+  } catch {
+
+  }
 }

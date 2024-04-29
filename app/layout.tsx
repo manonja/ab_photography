@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar />
         <div className="sm:container sm:max-w-screen-xl py-28 px-10 sm:py-0 ">
-          <main className="flex overflow-auto h-[calc(100vh-94px)] flex-col items-center z-10">
+          <main className="flex overflow-auto h-[calc(100vh-60px)] flex-col items-center z-10">
             <div className="flex-auto w-full p-0 ">{children}</div>
           </main>
         </div>
