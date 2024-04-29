@@ -6,13 +6,19 @@ async function getPhotos() {
     method: "GET",
   });
 
-  return await res.json();
+  return await res;
 }
 
 export default async function Home() {
   const photos = await getPhotos();
+  console.log(photos)
 
-  const slidesImages = photos.map((photo: Photo) => photo.desktop_blob);
+  // const slidesImages = photos.map((photo: Photo) => photo.desktop_blob);
 
-  return <SlideShow images={slidesImages} />;
+
+  // return <SlideShow images={slidesImages} />;
+  return (
+      <div>hello</div>
+
+  )
 }

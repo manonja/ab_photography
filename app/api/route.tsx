@@ -2,10 +2,12 @@ import { NextResponse } from "next/server";
 import prisma from "../../prisma/client";
 import { getProjectId } from "../utils/getProjectId";
 
-export const runtime = "edge";
+// TODO: review when deploying to cloudflare
+// export const runtime = "edge";
 
 export async function GET() {
   const projectId = await getProjectId("Homepage");
+  console.log(projectId)
 
   if (!projectId) {
     return NextResponse.json(
@@ -19,6 +21,8 @@ export async function GET() {
       projectId: projectId,
     },
   });
+
+  console.log(photos)
 
   return NextResponse.json(photos);
 }

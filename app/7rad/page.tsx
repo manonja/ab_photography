@@ -14,9 +14,9 @@ async function getPhotos() {
 }
 
 export default async function SevenRad() {
-  const photos = await getPhotos();
+  // const photos = await getPhotos();
 
-  const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[0];
+  // const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[0];
 
   const text1 =
     "With 7 Radiance (RAD), the Netherlands is the OECD country with the highest average artificial light pollution. Rad, or radiance, is the unit of measurement for light pollution measured by satellite. I visited all 13 regions with the highest light pollution, all agriculture or industrial sites. My photos document the systemic and systematic eradication of the night that 7 rad expresses scientifically. Through my photos, I challenge viewers to consider their consumption patterns and complacent approvals. After all, as the world population increases, with its high population density, the Netherlands may be the world's canary in the coal mine.";
@@ -40,7 +40,7 @@ export default async function SevenRad() {
     "Through these outreach efforts, I want to democratise my work outside the galleries and engage Dutch citizens and global consumers of flowers, steel and oil products. I hope to shed a different light on greenhouses than David Attenborough did in his documentary A Life on our Planet (2022), where he frames greenhouses in a relatively positive light as do the photographers Kadir van Lohuizen, Greenhouse II (2022) and Luca Locatelli, Future of Farming (2020). Even though greenhouses can offer more efficient farming and human expansion may require these methods, we should not ignore the impact on the darkness of the night.";
   return (
     <>
-      <Photo photo={landingImage} priority />
+      {/*<Photo photo={landingImage} priority />*/}
       <Description text={text1} />
       <Description text={text2} />
       <Description text={text3} />
@@ -52,7 +52,7 @@ export default async function SevenRad() {
       <Description text={text9} />
       <Description text={text10} links />
 
-      <Gallery images={photos} />
+      {/*<Gallery images={photos} />*/}
     </>
   );
 }
