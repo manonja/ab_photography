@@ -31,10 +31,11 @@ export default async function SevenRad() {
   try {
       const photos = await fetchPhotos(`${process.env.NEXT_PUBLIC_SITE_URL}/api/7rad`)
       const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[0];
+      // const thumbnails = await fetchPhotos(`${process.env.NEXT_PUBLIC_SITE_URL}/api/thumbnail/7rad`)
       return (
           <>
               <Photo photo={landingImage} priority />
-              {/*<Gallery images={photos} />*/}
+              {/*<Gallery images={thumbnails} />*/}
               <Description text={text1} />
               <Description text={text2} />
               <Description text={text3} />

@@ -22,7 +22,5 @@ export async function GET() {
     },
   });
 
-  console.log("PHOTOS API:", photos)
-
   return NextResponse.json(photos);
 }

@@ -6,7 +6,6 @@ import { PrismaClient } from '@prisma/client'
 export async function GET(request: NextRequest, {params}: {params: {id: string}}) {
     const prisma = new PrismaClient()
 
-
     if (!params.id) {
         return NextResponse.json({error: "Photo not found"}, {status: 404})
     }
