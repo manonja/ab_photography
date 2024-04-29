@@ -59,7 +59,7 @@ export const SlideShow: FC<Props> = ({ images }) => {
               height={0}
               sizes="100vw"
               style={{ width: "100%", height: "auto" }}
-              className="object-contain"
+              className="object-fit"
               priority
             />
           </div>
