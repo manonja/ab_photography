@@ -4,7 +4,7 @@ import { Photo as PhotoType } from "../types/photo";
 import { Photo } from "../components/photo";
 import {fetchPhotos} from "../lib/fetchPhotos";
 
-export const runtime = "edge";
+// export const runtime = "edge";
 
 export default async function SevenRad() {
   const text1 =
@@ -31,7 +31,8 @@ export default async function SevenRad() {
   try {
       const photos = await fetchPhotos(`${process.env.NEXT_PUBLIC_SITE_URL}/api/7rad`)
       const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[0];
-      // const thumbnails = await fetchPhotos(`${process.env.NEXT_PUBLIC_SITE_URL}/api/thumbnail/7rad`)
+      const thumbnails = await fetchPhotos(`${process.env.NEXT_PUBLIC_SITE_URL}/api/thumbnail/7rad`)
+      console.log(thumbnails)
       return (
           <>
               <Photo photo={landingImage} priority />

@@ -11,7 +11,9 @@ export async function Pyrenees() {
   try {
     const photos = await fetchPhotos(`${process.env.NEXT_PUBLIC_SITE_URL}/api/pyrenees`)
     const landingImage = photos.map((photo: PhotoType) => photo.desktop_blob)[0];
-    console.log(photos)
+      const thumbnails = await fetchPhotos(`${process.env.NEXT_PUBLIC_SITE_URL}/api/thumbnail/Pyrénées`)
+
+      console.log('THUMBNAILS COMPONENTS:', thumbnails)
     return (
         <>
           <Photo photo={landingImage} priority />
